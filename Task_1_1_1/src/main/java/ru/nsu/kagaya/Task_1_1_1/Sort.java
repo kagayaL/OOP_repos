@@ -2,8 +2,7 @@ package ru.nsu.kagaya.Task_1_1_1;
 
 public class Sort {
 
-    private static void sift_down(int[]array, int ind, int len) {
-
+    private static void sift_down(int[] array, int ind, int len) {
         int left = ind * 2 + 1; //левый сын
         int right = ind * 2 + 2; //правый сын
         int newind = ind;
@@ -20,7 +19,7 @@ public class Sort {
 
     }
 
-    private static void swap(int ind1, int ind2, int[]array) {
+    private static void swap(int ind1, int ind2, int[] array) {
         int temp = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = temp;
@@ -28,8 +27,8 @@ public class Sort {
 
     /**
      * Sort array using HeapSort
-     * @param array
-     * @return
+     * @param array the array to be sorted
+     * @return the sorted array
      */
     public static int[] sort(int[] array) {
         int len = array.length;
