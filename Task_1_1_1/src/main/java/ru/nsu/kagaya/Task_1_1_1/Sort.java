@@ -7,15 +7,15 @@ public class Sort {
         int left = ind * 2 + 1; //левый сын
         int right = ind * 2 + 2; //правый сын
         int newind = ind;
-        if(left < len && array[newind] < array[left]) {
+        if (left < len && array[newind] < array[left]) {
             newind = left;
         }
-        if(right < len && array[newind] < array[right]) {
+        if (right < len && array[newind] < array[right]) {
             newind = right;
         }
         if (ind != newind) {
             swap(ind, newind, array);
-            sift_down(array, newind,len);
+            sift_down(array, newind, len);
         }
 
     }
@@ -26,13 +26,18 @@ public class Sort {
         array[ind2] = temp;
     }
 
+    /**
+     * Sort array using HeapSort
+     * @param array
+     * @return
+     */
     public static int[] sort(int[] array) {
         int len = array.length;
-        for(int i = len - 1; i >= 0; i--) {
+        for (int i = len - 1; i >= 0; i--) {
             sift_down(array, i, len); //create heap
         }
-        for(int i =0; i < len; i++) {
-            swap(0,len - i - 1, array );
+        for (int i = 0; i < len; i++) {
+            swap(0, len - i - 1, array);
             sift_down(array, 0, len - i - 1);
         }
         return array;
