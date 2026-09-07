@@ -1,5 +1,8 @@
 package ru.nsu.kagaya.Task_1_1_1;
 
+/**
+ * Class for HeapSort
+ */
 public class Sort {
 
     private static void sift_down(int[] array, int ind, int len) {
