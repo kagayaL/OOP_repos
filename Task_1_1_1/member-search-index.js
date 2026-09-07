@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Sort","l":"Sort()","u":"%3Cinit%3E()"},{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Sort","l":"sort(int[])"}];updateSearchResults();
+memberSearchIndex = [{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Main","l":"Main()","u":"%3Cinit%3E()"},{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Main","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Sort","l":"Sort()","u":"%3Cinit%3E()"},{"p":"ru.nsu.kagaya.Task_1_1_1","c":"Sort","l":"sort(int[])"}];updateSearchResults();
