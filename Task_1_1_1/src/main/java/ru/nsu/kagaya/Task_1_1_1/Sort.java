@@ -5,7 +5,7 @@ package ru.nsu.kagaya.Task_1_1_1;
  */
 public class Sort {
 
-    private static void sift_down(int[] array, int ind, int len) {
+    private static void sift_down(int[] array, int ind, int len) { //heap sort sift down
         int left = ind * 2 + 1; //левый сын
         int right = ind * 2 + 2; //правый сын
         int newind = ind;
