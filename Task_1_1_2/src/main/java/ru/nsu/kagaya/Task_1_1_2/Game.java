@@ -12,11 +12,11 @@ public class Game {
     private static final int AUTO_WIN_SCORE = 21;
     private static final int DEALER_BREAKPOINT = 17;
 
-    private final Scanner scanner;
-    private final Random random = new Random();
-    private final Deck deck = new Deck();
-    private final Someone player = new Someone("Player");
-    private final Someone dealer = new Someone("Dealer");
+    Scanner scanner;
+    Random random = new Random();
+    Deck deck = new Deck();
+    Someone player = new Someone("Player");
+    Someone dealer = new Someone("Dealer");
 
     private int playerPoints = 0;
     private int dealerPoints = 0;

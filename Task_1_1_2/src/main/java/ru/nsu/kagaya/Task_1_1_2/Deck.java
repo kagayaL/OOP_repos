@@ -7,10 +7,10 @@ import java.util.Random;
  */
 public class Deck {
     private static final int DECK_SIZE = 52;
-    private Card[] deck;
-    private int deckCount;
-    private int currCardInd = 0;
-    private final Random rand = new Random();
+    Card[] deck;
+    int deckCount;
+    int currCardInd = 0;
+    Random rand = new Random();
 
     /**
      * Достает следующую карту.

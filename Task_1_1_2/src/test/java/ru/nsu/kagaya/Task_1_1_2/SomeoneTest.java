@@ -11,7 +11,7 @@ class SomeoneTest {
         Someone player = new Someone("Player");
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.ACE));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.ACE));
-        assertEquals(player.FormatCards(false),
+        assertEquals(player.formatCards(false),
                 "Player's cards: [ Ace Clubs ( 1 ), Ace Diamonds ( 11 ) ] => 12");
     }
     @Test
@@ -19,7 +19,7 @@ class SomeoneTest {
         Someone player = new Someone("Dealer");
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.ACE));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.ACE));
-        assertEquals(player.FormatCards(true),
+        assertEquals(player.formatCards(true),
                 "Dealer's cards: [ Ace Clubs ( 11 ), <closed> ] => ?");
     }
     @Test
@@ -28,7 +28,7 @@ class SomeoneTest {
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.KING));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.EIGHT));
         player.hand.getNewCard(new Card(Card.Suit.HEARTS, Card.Rank.TWO));
-        assertEquals(player.FormatCards(false),
+        assertEquals(player.formatCards(false),
                 "Player's cards: [ King Clubs ( 10 ), Eight Diamonds ( 8 )," +
                         " Two Hearts ( 2 ) ] => 20");
     }
