@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.Task_1_1_2;
+package ru.nsu.kagaya.task_1_1_2;
 
 import java.util.Random;
 import java.util.Scanner;
