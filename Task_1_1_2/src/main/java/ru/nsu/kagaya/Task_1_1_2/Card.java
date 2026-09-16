@@ -1,7 +1,12 @@
 package ru.nsu.kagaya.Task_1_1_2;
 
+/**
+ * Класс реализующий карты
+ */
 public class Card {
-
+    /**
+     * Масть карты
+     */
     public enum Suit {
         CLUBS ("Clubs"),
         HEARTS ("Hearts"),
@@ -19,6 +24,10 @@ public class Card {
         }
 
     }
+
+    /**
+     * Ранг и стоимость карты
+     */
     public enum Rank {
         TWO(2, "Two"),
         THREE (3, "Three"),
@@ -53,6 +62,12 @@ public class Card {
     Card.Rank rank;
     Card.Suit suit;
 
+    /**
+     * Функция для генерации строки с рангом, названием
+     * и весом карты
+     * @param is_ace_low булева переменная для определения веса туза
+     * @return строка с картой
+     */
     public String FormatCard(boolean is_ace_low) {
             StringBuilder result = new StringBuilder();
             if (is_ace_low) {
@@ -66,6 +81,11 @@ public class Card {
             return result.toString();
     }
 
+    /**
+     * Конструктор для карты
+     * @param suit масть
+     * @param rank ранг
+     */
     public Card(Suit suit, Rank rank) {
         this.rank = rank;
         this.suit = suit;

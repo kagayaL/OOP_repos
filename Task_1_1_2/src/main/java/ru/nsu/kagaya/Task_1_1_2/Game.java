@@ -3,9 +3,20 @@ package ru.nsu.kagaya.Task_1_1_2;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * Класс для проведения игры
+ * Реализует процесс игры:
+ * ход игрока, дилера, раунды..
+ */
 public class Game {
+    private static final int AUTO_WIN_SCORE = 21;
+    private static final int DEALER_BREAKPOINT = 17;
     Scanner scanner;
+
+    /**
+     * конструктор чтобы не было несколько сканеров
+     * @param scanner общий сканер
+     */
     public Game(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -37,7 +48,7 @@ public class Game {
 
         player.hand.getNewCard(deck.getNextCard());
         player.hand.getNewCard(deck.getNextCard());
-        if (player.hand.currSum == 21) {
+        if (player.hand.currSum == AUTO_WIN_SCORE) {
             result = Result.PLAYER_WIN;
         }
 
@@ -71,11 +82,11 @@ public class Game {
                 System.out.println(dealer.FormatCards(last_closed));
 
                 //check result
-                if (player.hand.currSum > 21) {
+                if (player.hand.currSum > AUTO_WIN_SCORE) {
                     result = Result.DEALER_WIN;
                     break;
                 }
-                else if (player.hand.currSum == 21) {
+                else if (player.hand.currSum == AUTO_WIN_SCORE) {
                     result = Result.PLAYER_WIN;
                     break;
                 }
@@ -95,7 +106,7 @@ public class Game {
         System.out.println(player.FormatCards(false));
         System.out.println(dealer.FormatCards(last_closed));
 
-        while (dealer.hand.currSum < 17) {
+        while (dealer.hand.currSum < DEALER_BREAKPOINT) {
 
             Card OpenedCard = deck.getNextCard();
 
@@ -114,11 +125,11 @@ public class Game {
             System.out.println(dealer.FormatCards(last_closed));
 
             //check result
-            if (dealer.hand.currSum > 21 ) {
+            if (dealer.hand.currSum > AUTO_WIN_SCORE ) {
                 result = Result.PLAYER_WIN;
                 break;
             }
-            else if (dealer.hand.currSum == 21) {
+            else if (dealer.hand.currSum == AUTO_WIN_SCORE) {
                 result = Result.DEALER_WIN;
                 break;
             }
@@ -133,6 +144,10 @@ public class Game {
         System.out.println(dealer.FormatCards(last_closed));
         System.out.println();
     }
+
+    /**
+     * Реализует раунд по всем правилам блек джека
+     */
     public void doRound() {
         result = Result.DRAW;
         System.out.println("Round №" + round);
@@ -167,7 +182,7 @@ public class Game {
         }
         else if (result == Result.DEALER_WIN) {
             dealer_points++;
-            System.out.printf("You lose!\n You - %d / %d - Dealer\n", player_points, dealer_points);
+            System.out.printf("You lose!\nYou - %d / %d - Dealer\n", player_points, dealer_points);
         }
         else {
             System.out.printf("Draw!\nYou - %d / %d - Dealer\n", player_points, dealer_points);

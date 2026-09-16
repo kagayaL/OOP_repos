@@ -2,7 +2,9 @@ package ru.nsu.kagaya.Task_1_1_2;
 
 import java.util.Random;
 
-
+/**
+ * Класс для создания колоды
+ */
 public class Deck {
     private static final int DECK_SIZE = 52;
     Card[] deck;
@@ -10,6 +12,10 @@ public class Deck {
     int currCardInd = 0;
     Random rand = new Random();
 
+    /**
+     * Достает следущую карту
+     * @return следущую карту
+     */
     public Card getNextCard() {
         return deck[currCardInd++];
     }
@@ -23,7 +29,13 @@ public class Deck {
             deck[new_position] = temp;
         }
     }
-    public void createDeck( int deck_cnt) {
+
+    /**
+     * Создает перемешанную колоду из
+     * заданного числа колод
+     * @param deck_cnt количество колод
+     */
+    public void createDeck(int deck_cnt) {
         int ind = 0;
         currCardInd = 0;
         deck_count = deck_cnt;
