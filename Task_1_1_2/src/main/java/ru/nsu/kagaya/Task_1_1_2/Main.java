@@ -16,7 +16,7 @@ public class Main {
             System.out.println("Play round? (y/n):");
             String ans = scanner.nextLine();
             if (ans.equals("y")) {
-                game.DoRound();
+                game.doRound();
             }
             else if (ans.equals("n")) {
                 break;

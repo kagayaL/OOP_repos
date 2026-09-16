@@ -1,40 +1,48 @@
 package ru.nsu.kagaya.Task_1_1_2;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
 public class Game {
+    Random random = new Random();
     int player_points = 0;
     int dealer_points = 0;
     Deck deck = new Deck();
     int round = 1;
-    boolean is_first = true;
     boolean last_closed = true;
     Someone player = new Someone("Player");
     Someone dealer = new Someone("Dealer");
 
-    public enum Result {
+    private enum Result {
         PLAYER_WIN,
         DEALER_WIN,
         DRAW
     }
     Result result;
-    private void DealTheCards() {
-        deck.createDeck();
+
+    private void dealTheCards() {
+        //генерируем количество колод. В блекджеке от 1 до 8 обычно
+        int deck_count = random.nextInt(1,9);
+        deck.createDeck(deck_count);
         player.hand = new Hand();
         dealer.hand = new Hand();
-        System.out.println("Dealer deal the cards");
-        player.hand.getNewCard(deck.GetNextCard());
-        player.hand.getNewCard(deck.GetNextCard());
+        System.out.println("Dealer deals the cards from " + deck_count
+                + " decks");
+
+        player.hand.getNewCard(deck.getNextCard());
+        player.hand.getNewCard(deck.getNextCard());
         if (player.hand.currSum == 21) {
             result = Result.PLAYER_WIN;
         }
-        dealer.hand.getNewCard(deck.GetNextCard());
-        dealer.hand.getNewCard(deck.GetNextCard());
+
+        dealer.hand.getNewCard(deck.getNextCard());
+        dealer.hand.getNewCard(deck.getNextCard());
+
         System.out.println(player.FormatCards(false));
         System.out.println(dealer.FormatCards(last_closed));
     }
-    private void PlayerTurn() {
+    private void playerTurn() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Your turn:\n--------------------\n");
 
@@ -42,7 +50,7 @@ public class Game {
             System.out.println("Do you want get card (y/n):");
             String ans = scanner.nextLine();
             if (ans.equals("y")) {
-                Card OpenedCard = deck.GetNextCard();
+                Card OpenedCard = deck.getNextCard();
 
                 int AceLowBefore = player.hand.LowAceCnt;
                 player.hand.getNewCard(OpenedCard);
@@ -77,15 +85,15 @@ public class Game {
         }
 
     }
-    private void DealerTurn() {
+    private void dealerTurn() {
         System.out.print("Dealer turn:\n--------------------\n");
-        OpenClosedCard();
+        openClosedCard();
         System.out.println(player.FormatCards(false));
         System.out.println(dealer.FormatCards(last_closed));
 
         while (dealer.hand.currSum < 17) {
 
-            Card OpenedCard = deck.GetNextCard();
+            Card OpenedCard = deck.getNextCard();
 
             int AceLowBefore = dealer.hand.LowAceCnt;
             dealer.hand.getNewCard(OpenedCard);
@@ -114,27 +122,27 @@ public class Game {
 
         }
     }
-    public void OpenClosedCard() {
+    public void openClosedCard() {
         System.out.print("Dealer open closed card ");
         System.out.println(dealer.hand.cards[1].FormatCard(false));
         last_closed = false;
         System.out.println(dealer.FormatCards(last_closed));
         System.out.println();
     }
-    public void DoRound() {
+    public void doRound() {
         result = Result.DRAW;
         System.out.println("Round №" + round);
-        DealTheCards();
+        dealTheCards();
         if (result != Result.DRAW) {
-            PrintResult();
+            printResult();
             return;
         }
-        PlayerTurn();
+        playerTurn();
         if (result != Result.DRAW) {
-            PrintResult();
+            printResult();
             return;
         }
-        DealerTurn();
+        dealerTurn();
         if (result == Result.DRAW) {
             if (player.hand.currSum > dealer.hand.currSum) {
                result = Result.PLAYER_WIN;
@@ -143,10 +151,10 @@ public class Game {
                 result = Result.DEALER_WIN;
             }
         }
-        PrintResult();
+        printResult();
 
     }
-    public void PrintResult() {
+    public void printResult() {
         last_closed = true;
         round++;
         if (result == Result.PLAYER_WIN) {
