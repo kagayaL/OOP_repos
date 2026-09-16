@@ -33,4 +33,12 @@ class GameTest {
 
         assertDoesNotThrow(() -> Main.main(new String[]{}));
     }
+    @Test
+    void doDefaultRound3() {
+
+        String simulatedInput = "y\ny\ny\ny\nn\nn\nn\n";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+
+        assertDoesNotThrow(() -> Main.main(new String[]{}));
+    }
 }
