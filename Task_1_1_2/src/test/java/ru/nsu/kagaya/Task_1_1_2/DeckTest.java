@@ -18,9 +18,9 @@ class DeckTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1, 52",
-            "2, 104",
-            "10, 520"
+        "1, 52",
+        "2, 104",
+        "10, 520"
     })
     void cardCount(int deckCount, int expectedCards) {
         deck.createDeck(deckCount);

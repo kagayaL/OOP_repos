@@ -4,11 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class SomeoneTest {
 
     @Test
-    void TwoAcePlayer() {
+    void twoAcePlayer() {
         Someone player = new Someone("Player");
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.ACE));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.ACE));
@@ -17,7 +16,7 @@ class SomeoneTest {
     }
 
     @Test
-    void TwoAceDealer() {
+    void twoAceDealer() {
         Someone player = new Someone("Dealer");
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.ACE));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.ACE));
@@ -26,7 +25,7 @@ class SomeoneTest {
     }
 
     @Test
-    void DefaultCard() {
+    void defaultCard() {
         Someone player = new Someone("Player");
         player.hand.getNewCard(new Card(Card.Suit.CLUBS, Card.Rank.KING));
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.EIGHT));
