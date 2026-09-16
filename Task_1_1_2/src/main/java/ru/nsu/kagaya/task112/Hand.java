@@ -1,6 +1,6 @@
-package ru.nsu.kagaya.task_1_1_2;
+package ru.nsu.kagaya.task112;
 
-import static ru.nsu.kagaya.task_1_1_2.Card.Rank.ACE;
+import static ru.nsu.kagaya.task112.Card.Rank.ACE;
 
 /**
  * Класс, реализующий руку с картами.

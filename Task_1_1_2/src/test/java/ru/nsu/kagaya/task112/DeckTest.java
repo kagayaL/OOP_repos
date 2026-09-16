@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task_1_1_2;
+package ru.nsu.kagaya.task112;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
