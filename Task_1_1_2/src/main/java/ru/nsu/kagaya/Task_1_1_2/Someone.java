@@ -1,14 +1,15 @@
 package ru.nsu.kagaya.Task_1_1_2;
 
 /**
- * Класс реализующий сущность владеющую картами
+ * Класс, реализующий сущность, владеющую картами.
  */
 public class Someone {
     Hand hand = new Hand();
     String who;
 
     /**
-     * Конструктор назначающий имя сущности
+     * Конструктор, назначающий имя сущности.
+     *
      * @param who имя сущности
      */
     public Someone(String who) {
@@ -16,26 +17,28 @@ public class Someone {
     }
 
     /**
-     * Функция генерерующая строку для вывода с рукой
-     * @param last_closed булевая переменная для закрытой карты у дилера
+     * Функция, генерирующая строку для вывода с рукой.
+     *
+     * @param lastClosed булевая переменная для закрытой карты у дилера
      * @return строка со всеми картами
      */
-    public String FormatCards(boolean last_closed) {
+    public String formatCards(boolean lastClosed) {
         StringBuilder result = new StringBuilder();
         result.append(who + "'s cards: [ ");
-        int lowAceCnt = hand.LowAceCnt;
+        int lowAceCnt = hand.lowAceCnt;
         for (int i = 0; i < hand.cardCount - 1; i++) {
-            boolean is_ace_low = !last_closed &&
-                    (hand.cards[i].rank == Card.Rank.ACE) && (lowAceCnt-- > 0);
+            boolean isAceLow = !lastClosed
+                    && (hand.cards[i].rank == Card.Rank.ACE)
+                    && (lowAceCnt-- > 0);
 
-            result.append(hand.cards[i].FormatCard(is_ace_low) + ", ");
+            result.append(hand.cards[i].formatCard(isAceLow) + ", ");
         }
-        if (last_closed) {
+        if (lastClosed) {
             result.append("<closed> ] => ?");
-        }
-        else {
-            boolean is_ace_low = (hand.cards[hand.cardCount - 1].rank == Card.Rank.ACE) && (lowAceCnt-- > 0);
-            result.append(hand.cards[hand.cardCount - 1].FormatCard(is_ace_low));
+        } else {
+            boolean isAceLow = (hand.cards[hand.cardCount - 1].rank == Card.Rank.ACE)
+                    && (lowAceCnt-- > 0);
+            result.append(hand.cards[hand.cardCount - 1].formatCard(isAceLow));
             result.append(" ] => " + hand.currSum);
         }
         return result.toString();

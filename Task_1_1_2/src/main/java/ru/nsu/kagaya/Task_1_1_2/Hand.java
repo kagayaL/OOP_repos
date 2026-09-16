@@ -3,34 +3,40 @@ package ru.nsu.kagaya.Task_1_1_2;
 import static ru.nsu.kagaya.Task_1_1_2.Card.Rank.ACE;
 
 /**
- * Класс реализующий руку с картами
+ * Класс, реализующий руку с картами.
  */
 public class Hand {
-    Card[] cards = new Card[52];
+    private static final int BLACKJACK = 21;
+    private static final int ACE_DIFFERENCE = 10;
+    private static final int HAND_CAP = 100;
+
+    Card[] cards = new Card[HAND_CAP];
     int cardCount = 0;
     int currSum = 0;
-    int HighAceCnt = 0;
-    int LowAceCnt = 0;
+    int highAceCnt = 0;
+    int lowAceCnt = 0;
 
     /**
-     * добавляет в руку новую карту с перерассчетом очков
-     * @param card - новая карта
+     * Добавляет в руку новую карту с перерасчетом очков.
+     *
+     * @param card новая карта
      */
     public void getNewCard(Card card) {
         cards[cardCount++] = card;
         if (card.rank == ACE) {
-            HighAceCnt++;
+            highAceCnt++;
         }
         currSum += card.rank.getValue();
-        if (currSum > 21 && HighAceCnt > 0) {
-            currSum -= 10;
-            HighAceCnt--;
-            LowAceCnt++;
+        if (currSum > BLACKJACK && highAceCnt > 0) {
+            currSum -= ACE_DIFFERENCE;
+            highAceCnt--;
+            lowAceCnt++;
         }
     }
 
     /**
-     * Функция для получения очков на руке
+     * Функция для получения очков на руке.
+     *
      * @return сумма очков
      */
     public int getSum() {

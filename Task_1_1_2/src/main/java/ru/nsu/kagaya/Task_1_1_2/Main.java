@@ -1,12 +1,14 @@
 package ru.nsu.kagaya.Task_1_1_2;
+
 import java.util.Scanner;
 
 /**
- * Точка входа
+ * Точка входа.
  */
 public class Main {
     /**
-     * Запускает раунды по желанию пользователя
+     * Запускает раунды по желанию пользователя.
+     *
      * @param args их нету
      */
     public static void main(String[] args) {
@@ -18,14 +20,11 @@ public class Main {
             String ans = scanner.nextLine();
             if (ans.equals("y")) {
                 game.doRound();
-            }
-            else if (ans.equals("n")) {
+            } else if (ans.equals("n")) {
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Wrong input. Try again...");
             }
         }
-
     }
 }

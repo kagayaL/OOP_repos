@@ -3,45 +3,48 @@ package ru.nsu.kagaya.Task_1_1_2;
 import java.util.Random;
 
 /**
- * Класс для создания колоды
+ * Класс для создания колоды.
  */
 public class Deck {
     private static final int DECK_SIZE = 52;
-    Card[] deck;
-    int deck_count;
-    int currCardInd = 0;
-    Random rand = new Random();
+    private Card[] deck;
+    private int deckCount;
+    private int currCardInd = 0;
+    private final Random rand = new Random();
 
     /**
-     * Достает следущую карту
-     * @return следущую карту
+     * Достает следующую карту.
+     *
+     * @return следующую карту
      */
     public Card getNextCard() {
         return deck[currCardInd++];
     }
-    private void shuffleDeck() { //каждую карту в колоде меняю с другой рандомной картой
-        int total = DECK_SIZE * deck_count;
+
+    private void shuffleDeck() {
+        // каждую карту в колоде меняю с другой рандомной картой
+        int total = DECK_SIZE * deckCount;
 
         for (int i = 0; i < total; i++) {
-            int new_position = rand.nextInt(total);
+            int newPosition = rand.nextInt(total);
             Card temp = deck[i];
-            deck[i] = deck[new_position];
-            deck[new_position] = temp;
+            deck[i] = deck[newPosition];
+            deck[newPosition] = temp;
         }
     }
 
     /**
-     * Создает перемешанную колоду из
-     * заданного числа колод
-     * @param deck_cnt количество колод
+     * Создает перемешанную колоду из заданного числа колод.
+     *
+     * @param deckCount количество колод
      */
-    public void createDeck(int deck_cnt) {
-        int ind = 0;
-        currCardInd = 0;
-        deck_count = deck_cnt;
-        deck = new Card[DECK_SIZE * deck_count];
+    public void createDeck(int deckCount) {
+        this.currCardInd = 0;
+        this.deckCount = deckCount;
+        this.deck = new Card[DECK_SIZE * deckCount];
 
-        for (int i = 0; i < deck_count; i++) {
+        int ind = 0;
+        for (int i = 0; i < deckCount; i++) {
             for (Card.Suit suit : Card.Suit.values()) {
                 for (Card.Rank rank : Card.Rank.values()) {
                     deck[ind++] = new Card(suit, rank);
@@ -50,5 +53,4 @@ public class Deck {
         }
         shuffleDeck();
     }
-
 }

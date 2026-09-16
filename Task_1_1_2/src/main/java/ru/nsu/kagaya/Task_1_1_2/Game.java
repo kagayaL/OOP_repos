@@ -4,46 +4,48 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Класс для проведения игры
+ * Класс для проведения игры.
  * Реализует процесс игры:
- * ход игрока, дилера, раунды..
+ * ход игрока, дилера, раунды.
  */
 public class Game {
     private static final int AUTO_WIN_SCORE = 21;
     private static final int DEALER_BREAKPOINT = 17;
-    Scanner scanner;
+
+    private final Scanner scanner;
+    private final Random random = new Random();
+    private final Deck deck = new Deck();
+    private final Someone player = new Someone("Player");
+    private final Someone dealer = new Someone("Dealer");
+
+    private int playerPoints = 0;
+    private int dealerPoints = 0;
+    private int round = 1;
+    private boolean lastClosed = true;
+    private Result result;
 
     /**
-     * конструктор чтобы не было несколько сканеров
+     * Конструктор, чтобы не было несколько сканеров.
+     *
      * @param scanner общий сканер
      */
     public Game(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    Random random = new Random();
-    int player_points = 0;
-    int dealer_points = 0;
-    Deck deck = new Deck();
-    int round = 1;
-    boolean last_closed = true;
-    Someone player = new Someone("Player");
-    Someone dealer = new Someone("Dealer");
-
     private enum Result {
         PLAYER_WIN,
         DEALER_WIN,
         DRAW
     }
-    Result result;
 
     private void dealTheCards() {
-        //генерируем количество колод. В блекджеке от 1 до 8 обычно
-        int deck_count = random.nextInt(1,9);
-        deck.createDeck(deck_count);
+        // генерируем количество колод. В блекджеке от 1 до 8 обычно
+        int deckCount = random.nextInt(1, 9);
+        deck.createDeck(deckCount);
         player.hand = new Hand();
         dealer.hand = new Hand();
-        System.out.println("Dealer deals the cards from " + deck_count
+        System.out.println("Dealer deals the cards from " + deckCount
                 + " decks");
 
         player.hand.getNewCard(deck.getNextCard());
@@ -55,9 +57,10 @@ public class Game {
         dealer.hand.getNewCard(deck.getNextCard());
         dealer.hand.getNewCard(deck.getNextCard());
 
-        System.out.println(player.FormatCards(false));
-        System.out.println(dealer.FormatCards(last_closed));
+        System.out.println(player.formatCards(false));
+        System.out.println(dealer.formatCards(lastClosed));
     }
+
     private void playerTurn() {
         System.out.print("Your turn:\n--------------------\n");
 
@@ -65,88 +68,83 @@ public class Game {
             System.out.println("Do you want get card (y/n):");
             String ans = scanner.nextLine();
             if (ans.equals("y")) {
-                Card OpenedCard = deck.getNextCard();
+                Card openedCard = deck.getNextCard();
 
-                int AceLowBefore = player.hand.LowAceCnt;
-                player.hand.getNewCard(OpenedCard);
-                int AceLowAfter = player.hand.LowAceCnt;
+                int aceLowBefore = player.hand.lowAceCnt;
+                player.hand.getNewCard(openedCard);
+                int aceLowAfter = player.hand.lowAceCnt;
 
                 System.out.print("You get ");
 
-                //Ace value check:
-                boolean is_ace_low = AceLowBefore != AceLowAfter;
+                // Ace value check:
+                boolean isAceLow = aceLowBefore != aceLowAfter;
 
-                System.out.println(OpenedCard.FormatCard(is_ace_low));
+                System.out.println(openedCard.formatCard(isAceLow));
 
-                System.out.println(player.FormatCards(false));
-                System.out.println(dealer.FormatCards(last_closed));
+                System.out.println(player.formatCards(false));
+                System.out.println(dealer.formatCards(lastClosed));
 
-                //check result
+                // check result
                 if (player.hand.currSum > AUTO_WIN_SCORE) {
                     result = Result.DEALER_WIN;
                     break;
-                }
-                else if (player.hand.currSum == AUTO_WIN_SCORE) {
+                } else if (player.hand.currSum == AUTO_WIN_SCORE) {
                     result = Result.PLAYER_WIN;
                     break;
                 }
-            }
-            else if (ans.equals("n")) {
+            } else if (ans.equals("n")) {
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Wrong input, try again...");
             }
         }
-
     }
+
     private void dealerTurn() {
         System.out.print("Dealer turn:\n--------------------\n");
         openClosedCard();
-        System.out.println(player.FormatCards(false));
-        System.out.println(dealer.FormatCards(last_closed));
+        System.out.println(player.formatCards(false));
+        System.out.println(dealer.formatCards(lastClosed));
 
         while (dealer.hand.currSum < DEALER_BREAKPOINT) {
 
-            Card OpenedCard = deck.getNextCard();
+            Card openedCard = deck.getNextCard();
 
-            int AceLowBefore = dealer.hand.LowAceCnt;
-            dealer.hand.getNewCard(OpenedCard);
-            int AceLowAfter = dealer.hand.LowAceCnt;
+            int aceLowBefore = dealer.hand.lowAceCnt;
+            dealer.hand.getNewCard(openedCard);
+            int aceLowAfter = dealer.hand.lowAceCnt;
 
             System.out.print("Dealer get ");
 
-            //Ace value check:
-            boolean is_ace_low = AceLowBefore != AceLowAfter;
+            // Ace value check:
+            boolean isAceLow = aceLowBefore != aceLowAfter;
 
-            System.out.println(OpenedCard.FormatCard(is_ace_low));
+            System.out.println(openedCard.formatCard(isAceLow));
 
-            System.out.println(player.FormatCards(false));
-            System.out.println(dealer.FormatCards(last_closed));
+            System.out.println(player.formatCards(false));
+            System.out.println(dealer.formatCards(lastClosed));
 
-            //check result
-            if (dealer.hand.currSum > AUTO_WIN_SCORE ) {
+            // check result
+            if (dealer.hand.currSum > AUTO_WIN_SCORE) {
                 result = Result.PLAYER_WIN;
                 break;
-            }
-            else if (dealer.hand.currSum == AUTO_WIN_SCORE) {
+            } else if (dealer.hand.currSum == AUTO_WIN_SCORE) {
                 result = Result.DEALER_WIN;
                 break;
             }
-
-
         }
     }
+
     private void openClosedCard() {
         System.out.print("Dealer open closed card ");
-        System.out.println(dealer.hand.cards[1].FormatCard(false));
-        last_closed = false;
-        System.out.println(dealer.FormatCards(last_closed));
+        System.out.println(dealer.hand.cards[1].formatCard(false));
+        lastClosed = false;
+        System.out.println(dealer.formatCards(lastClosed));
         System.out.println();
     }
 
     /**
-     * Реализует раунд по всем правилам блек джека
+     * Реализует раунд по всем правилам блек джека.
      */
     public void doRound() {
         result = Result.DRAW;
@@ -164,28 +162,25 @@ public class Game {
         dealerTurn();
         if (result == Result.DRAW) {
             if (player.hand.currSum > dealer.hand.currSum) {
-               result = Result.PLAYER_WIN;
-            }
-            else if (player.hand.currSum < dealer.hand.currSum) {
+                result = Result.PLAYER_WIN;
+            } else if (player.hand.currSum < dealer.hand.currSum) {
                 result = Result.DEALER_WIN;
             }
         }
         printResult();
-
     }
+
     private void printResult() {
-        last_closed = true;
+        lastClosed = true;
         round++;
         if (result == Result.PLAYER_WIN) {
-            player_points++;
-            System.out.printf("You win!\nYou - %d / %d - Dealer\n", player_points, dealer_points);
-        }
-        else if (result == Result.DEALER_WIN) {
-            dealer_points++;
-            System.out.printf("You lose!\nYou - %d / %d - Dealer\n", player_points, dealer_points);
-        }
-        else {
-            System.out.printf("Draw!\nYou - %d / %d - Dealer\n", player_points, dealer_points);
+            playerPoints++;
+            System.out.printf("You win!\nYou - %d / %d - Dealer\n", playerPoints, dealerPoints);
+        } else if (result == Result.DEALER_WIN) {
+            dealerPoints++;
+            System.out.printf("You lose!\nYou - %d / %d - Dealer\n", playerPoints, dealerPoints);
+        } else {
+            System.out.printf("Draw!\nYou - %d / %d - Dealer\n", playerPoints, dealerPoints);
         }
     }
 }
