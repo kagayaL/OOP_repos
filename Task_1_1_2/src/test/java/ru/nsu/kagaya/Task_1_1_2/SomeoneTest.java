@@ -2,7 +2,8 @@ package ru.nsu.kagaya.Task_1_1_2;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class SomeoneTest {
 
@@ -14,6 +15,7 @@ class SomeoneTest {
         assertEquals(player.formatCards(false),
                 "Player's cards: [ Ace Clubs ( 1 ), Ace Diamonds ( 11 ) ] => 12");
     }
+
     @Test
     void TwoAceDealer() {
         Someone player = new Someone("Dealer");
@@ -22,6 +24,7 @@ class SomeoneTest {
         assertEquals(player.formatCards(true),
                 "Dealer's cards: [ Ace Clubs ( 11 ), <closed> ] => ?");
     }
+
     @Test
     void DefaultCard() {
         Someone player = new Someone("Player");
@@ -29,8 +32,8 @@ class SomeoneTest {
         player.hand.getNewCard(new Card(Card.Suit.DIAMONDS, Card.Rank.EIGHT));
         player.hand.getNewCard(new Card(Card.Suit.HEARTS, Card.Rank.TWO));
         assertEquals(player.formatCards(false),
-                "Player's cards: [ King Clubs ( 10 ), Eight Diamonds ( 8 )," +
-                        " Two Hearts ( 2 ) ] => 20");
+                "Player's cards: [ King Clubs ( 10 ), Eight Diamonds ( 8 ),"
+                       + " Two Hearts ( 2 ) ] => 20");
     }
 
 }

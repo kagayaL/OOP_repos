@@ -1,12 +1,12 @@
 package ru.nsu.kagaya.Task_1_1_2;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 
 class GameTest {
 
@@ -25,6 +25,7 @@ class GameTest {
 
         assertDoesNotThrow(() -> Main.main(new String[]{}));
     }
+
     @Test
     void doDefaultRound2() {
 
@@ -33,6 +34,7 @@ class GameTest {
 
         assertDoesNotThrow(() -> Main.main(new String[]{}));
     }
+
     @Test
     void doDefaultRound3() {
 

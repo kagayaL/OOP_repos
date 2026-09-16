@@ -85,7 +85,8 @@ public class Card {
         if (isAceLow) {
             result.append(String.format("%s %s ( 1 )", this.rank.name, this.suit.name));
         } else {
-            result.append(String.format("%s %s ( %d )", this.rank.name, this.suit.name, this.rank.value));
+            result.append(String.format("%s %s ( %d )",
+                    this.rank.name, this.suit.name, this.rank.value));
         }
         return result.toString();
     }

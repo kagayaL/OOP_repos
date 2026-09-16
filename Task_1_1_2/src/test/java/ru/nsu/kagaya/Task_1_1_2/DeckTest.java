@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DeckTest {
     private Deck deck;
@@ -20,7 +21,6 @@ class DeckTest {
             "1, 52",
             "2, 104",
             "10, 520"
-
     })
     void cardCount(int deckCount, int expectedCards) {
         deck.createDeck(deckCount);
