@@ -8,9 +8,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        Game game = new Game();
         Scanner scanner = new Scanner(System.in);
+        Game game = new Game(scanner);
 
         while (true) {
             System.out.println("Play round? (y/n):");

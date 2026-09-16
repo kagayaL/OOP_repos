@@ -25,6 +25,7 @@ public class Deck {
     }
     public void createDeck( int deck_cnt) {
         int ind = 0;
+        currCardInd = 0;
         deck_count = deck_cnt;
         deck = new Card[DECK_SIZE * deck_count];
 

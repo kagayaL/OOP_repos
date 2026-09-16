@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 
 public class Game {
+    Scanner scanner;
+    public Game(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     Random random = new Random();
     int player_points = 0;
     int dealer_points = 0;
@@ -43,7 +48,6 @@ public class Game {
         System.out.println(dealer.FormatCards(last_closed));
     }
     private void playerTurn() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Your turn:\n--------------------\n");
 
         while (true) {
@@ -122,7 +126,7 @@ public class Game {
 
         }
     }
-    public void openClosedCard() {
+    private void openClosedCard() {
         System.out.print("Dealer open closed card ");
         System.out.println(dealer.hand.cards[1].FormatCard(false));
         last_closed = false;
@@ -154,7 +158,7 @@ public class Game {
         printResult();
 
     }
-    public void printResult() {
+    private void printResult() {
         last_closed = true;
         round++;
         if (result == Result.PLAYER_WIN) {
