@@ -12,7 +12,7 @@ class MainTest {
     private final InputStream originIn = System.in;
 
     @AfterEach
-    void tearDown() {
+    void clearInput() {
         System.setIn(originIn);
     }
 
