@@ -8,9 +8,9 @@ import static ru.nsu.kagaya.task112.Rank.ACE;
 public class Hand {
     private static final int BLACKJACK = 21;
     private static final int ACE_DIFFERENCE = 10;
-    private static final int HAND_CAP = 100;
+    private static final int HAND_CAPACITY = 100;
 
-    private final Card[] cards = new Card[HAND_CAP];
+    private final Card[] cards = new Card[HAND_CAPACITY];
     private int cardCount = 0;
     private int currSum = 0;
     private int highAceCnt = 0;
