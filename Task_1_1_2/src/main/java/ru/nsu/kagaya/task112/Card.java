@@ -34,7 +34,7 @@ public class Card {
      * @param isAceLow булева переменная для определения веса туза
      * @return строка с картой
      */
-    public String cardToString(boolean isAceLow) {
+    public String toString(boolean isAceLow) {
         StringBuilder result = new StringBuilder();
         if (isAceLow) {
             result.append(String.format("%s %s ( 1 )", rank.getName(), suit.getName()));
