@@ -7,10 +7,9 @@ import java.util.Random;
  */
 public class Deck {
     private static final int DECK_SIZE = 52;
-    Card[] deck;
-    int deckCount;
-    int currCardInd = 0;
-    Random rand = new Random();
+    private Card[] deck;
+    private int currCardInd = 0;
+
 
     /**
      * Достает следующую карту.
@@ -23,7 +22,8 @@ public class Deck {
 
     private void shuffleDeck() {
         // каждую карту в колоде меняю с другой рандомной картой
-        int total = DECK_SIZE * deckCount;
+        Random rand = new Random();
+        int total = deck.length;
 
         for (int i = 0; i < total; i++) {
             int newPosition = rand.nextInt(total);
@@ -38,15 +38,14 @@ public class Deck {
      *
      * @param deckCount количество колод
      */
-    public void createDeck(int deckCount) {
+    public Deck(int deckCount) {
         this.currCardInd = 0;
-        this.deckCount = deckCount;
         this.deck = new Card[DECK_SIZE * deckCount];
 
         int ind = 0;
         for (int i = 0; i < deckCount; i++) {
-            for (Card.Suit suit : Card.Suit.values()) {
-                for (Card.Rank rank : Card.Rank.values()) {
+            for (Suit suit : Suit.values()) {
+                for (Rank rank : Rank.values()) {
                     deck[ind++] = new Card(suit, rank);
                 }
             }
