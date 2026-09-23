@@ -7,8 +7,8 @@ import java.util.Random;
  */
 public class Deck {
     private static final int DECK_SIZE = 52;
-    private Card[] deck;
-    private int currCardInd = 0;
+    private final Card[] deck;
+    private int currentCardInd = 0;
 
 
     /**
@@ -17,7 +17,16 @@ public class Deck {
      * @return следующую карту
      */
     public Card getNextCard() {
-        return deck[currCardInd++];
+        return deck[currentCardInd++];
+    }
+
+    /**
+     * Выдает колоду
+     *
+     * @return колода с картами
+     */
+    public Card[] getDeck() {
+        return deck;
     }
 
     private void shuffleDeck() {
@@ -39,7 +48,7 @@ public class Deck {
      * @param deckCount количество колод
      */
     public Deck(int deckCount) {
-        this.currCardInd = 0;
+        this.currentCardInd = 0;
         this.deck = new Card[DECK_SIZE * deckCount];
 
         int ind = 0;

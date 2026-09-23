@@ -3,18 +3,11 @@ package ru.nsu.kagaya.task112;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class DeckTest {
-    private Deck deck;
-
-    @BeforeEach
-    void setUp() {
-        deck = new Deck();
-    }
 
     @ParameterizedTest
     @CsvSource({
@@ -23,7 +16,7 @@ class DeckTest {
         "10, 520"
     })
     void cardCount(int deckCount, int expectedCards) {
-        deck.createDeck(deckCount);
+        Deck deck = new Deck(deckCount);
 
         int actual = 0;
         for (int i = 0; i < expectedCards; i++) {
@@ -35,15 +28,11 @@ class DeckTest {
 
     @Test
     void getNextCard() {
-        deck.createDeck(1);
+        Deck deck = new Deck(1);
+        Card[] cards = deck.getDeck();
 
-        Card nextCard = deck.getNextCard();
-        assertEquals(deck.deck[0], nextCard);
-
-        nextCard = deck.getNextCard();
-        assertEquals(deck.deck[1], nextCard);
-
-        nextCard = deck.getNextCard();
-        assertEquals(deck.deck[2], nextCard);
+        assertEquals(cards[0], deck.getNextCard());
+        assertEquals(cards[1], deck.getNextCard());
+        assertEquals(cards[2], deck.getNextCard());
     }
 }
