@@ -1,7 +1,5 @@
 package ru.nsu.kagaya.task112;
 
-import java.util.Scanner;
-
 /**
  * Класс для проведения игры:
  * запускает раунды и ведет счет.
@@ -19,15 +17,6 @@ public class Game {
      */
     public Game(ConsoleUI ui) {
         this.ui = ui;
-    }
-
-    /**
-     * Конструктор, чтобы не было несколько сканеров.
-     *
-     * @param scanner общий сканер
-     */
-    public Game(Scanner scanner) {
-        this(new ConsoleUI(scanner));
     }
 
     /**

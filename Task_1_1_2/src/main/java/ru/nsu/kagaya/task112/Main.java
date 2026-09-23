@@ -13,6 +13,6 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        new Game(scanner).run();
+        new Game(new ConsoleUI(scanner)).run();
     }
 }
