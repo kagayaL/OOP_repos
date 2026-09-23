@@ -19,6 +19,14 @@ public class Card {
         this.suit = suit;
     }
 
+    public Rank getRank() {
+        return rank;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
     /**
      * Функция для генерации строки с рангом, названием
      * и весом карты.
@@ -26,14 +34,13 @@ public class Card {
      * @param isAceLow булева переменная для определения веса туза
      * @return строка с картой
      */
-    @Override
-    public String toString(boolean isAceLow) {
+    public String cardToString(boolean isAceLow) {
         StringBuilder result = new StringBuilder();
         if (isAceLow) {
-            result.append(String.format("%s %s ( 1 )", this.rank.name, this.suit.getName()));
+            result.append(String.format("%s %s ( 1 )", rank.getName(), suit.getName()));
         } else {
             result.append(String.format("%s %s ( %d )",
-                    this.rank.name, this.suit.getName(), this.rank.value));
+                    rank.getName(), suit.getName(), rank.getValue()));
         }
         return result.toString();
     }
