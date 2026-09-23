@@ -42,7 +42,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -80,28 +80,6 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<li>
-<section class="nested-class-summary" id="nested-class-summary">
-<h2>Nested Class Summary</h2>
-<div class="caption"><span>Nested Classes</span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Class</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="Card.Rank.html" class="type-name-link" title="enum class in ru.nsu.kagaya.task112">Card.Rank</a></code></div>
-<div class="col-last even-row-color">
-<div class="block">Ранг и стоимость карты.</div>
-</div>
-<div class="col-first odd-row-color"><code>static enum&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="Card.Suit.html" class="type-name-link" title="enum class in ru.nsu.kagaya.task112">Card.Suit</a></code></div>
-<div class="col-last odd-row-color">
-<div class="block">Масть карты.</div>
-</div>
-</div>
-</section>
-</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -110,8 +88,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.kagaya.task112.Card.Suit,ru.nsu.kagaya.task112.Card.Rank)" class="member-name-link">Card</a><wbr>(<a href="Card.Suit.html" title="enum class in ru.nsu.kagaya.task112">Card.Suit</a>&nbsp;suit,
- <a href="Card.Rank.html" title="enum class in ru.nsu.kagaya.task112">Card.Rank</a>&nbsp;rank)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.kagaya.task112.Suit,ru.nsu.kagaya.task112.Rank)" class="member-name-link">Card</a><wbr>(<a href="Suit.html" title="enum class in ru.nsu.kagaya.task112">Suit</a>&nbsp;suit,
+ <a href="Rank.html" title="enum class in ru.nsu.kagaya.task112">Rank</a>&nbsp;rank)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Конструктор для карты.</div>
 </div>
@@ -129,8 +107,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Rank.html" title="enum class in ru.nsu.kagaya.task112">Rank</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRank()" class="member-name-link">getRank</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Suit.html" title="enum class in ru.nsu.kagaya.task112">Suit</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSuit()" class="member-name-link">getSuit</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#formatCard(boolean)" class="member-name-link">formatCard</a><wbr>(boolean&nbsp;isAceLow)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString(boolean)" class="member-name-link">toString</a><wbr>(boolean&nbsp;isAceLow)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Функция для генерации строки с рангом, названием
  и весом карты.</div>
@@ -153,10 +137,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(ru.nsu.kagaya.task112.Card.Suit,ru.nsu.kagaya.task112.Card.Rank)">
+<section class="detail" id="&lt;init&gt;(ru.nsu.kagaya.task112.Suit,ru.nsu.kagaya.task112.Rank)">
 <h3>Card</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Card</span><wbr><span class="parameters">(<a href="Card.Suit.html" title="enum class in ru.nsu.kagaya.task112">Card.Suit</a>&nbsp;suit,
- <a href="Card.Rank.html" title="enum class in ru.nsu.kagaya.task112">Card.Rank</a>&nbsp;rank)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Card</span><wbr><span class="parameters">(<a href="Suit.html" title="enum class in ru.nsu.kagaya.task112">Suit</a>&nbsp;suit,
+ <a href="Rank.html" title="enum class in ru.nsu.kagaya.task112">Rank</a>&nbsp;rank)</span></div>
 <div class="block">Конструктор для карты.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -174,9 +158,21 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="formatCard(boolean)">
-<h3>formatCard</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">formatCard</span><wbr><span class="parameters">(boolean&nbsp;isAceLow)</span></div>
+<section class="detail" id="getRank()">
+<h3>getRank</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Rank.html" title="enum class in ru.nsu.kagaya.task112">Rank</a></span>&nbsp;<span class="element-name">getRank</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSuit()">
+<h3>getSuit</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Suit.html" title="enum class in ru.nsu.kagaya.task112">Suit</a></span>&nbsp;<span class="element-name">getSuit</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toString(boolean)">
+<h3>toString</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span><wbr><span class="parameters">(boolean&nbsp;isAceLow)</span></div>
 <div class="block">Функция для генерации строки с рангом, названием
  и весом карты.</div>
 <dl class="notes">

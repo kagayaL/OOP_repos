@@ -76,9 +76,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Game</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Класс для проведения игры.
- Реализует процесс игры:
- ход игрока, дилера, раунды.</div>
+<div class="block">Класс для проведения игры:
+ запускает раунды и ведет счет.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -93,6 +92,10 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.Scanner)" class="member-name-link">Game</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Конструктор, чтобы не было несколько сканеров.</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(ru.nsu.kagaya.task112.ConsoleUI)" class="member-name-link">Game</a><wbr>(<a href="ConsoleUI.html" title="class in ru.nsu.kagaya.task112">ConsoleUI</a>&nbsp;ui)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Конструктор.</div>
 </div>
 </div>
 </section>
@@ -109,9 +112,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doRound()" class="member-name-link">doRound</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nextRound()" class="member-name-link">nextRound</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Реализует раунд по всем правилам блек джека.</div>
+<div class="block">Проводит один раунд и обновляет счет.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проводит раунды по желанию пользователя.</div>
 </div>
 </div>
 </div>
@@ -130,6 +138,17 @@ loadScripts(document, 'script');</script>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(ru.nsu.kagaya.task112.ConsoleUI)">
+<h3>Game</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Game</span><wbr><span class="parameters">(<a href="ConsoleUI.html" title="class in ru.nsu.kagaya.task112">ConsoleUI</a>&nbsp;ui)</span></div>
+<div class="block">Конструктор.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>ui</code> - консольный ввод-вывод</dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.Scanner)">
 <h3>Game</h3>
@@ -150,10 +169,17 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="doRound()">
-<h3>doRound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">doRound</span>()</div>
-<div class="block">Реализует раунд по всем правилам блек джека.</div>
+<section class="detail" id="run()">
+<h3>run</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()</div>
+<div class="block">Проводит раунды по желанию пользователя.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="nextRound()">
+<h3>nextRound</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">nextRound</span>()</div>
+<div class="block">Проводит один раунд и обновляет счет.</div>
 </section>
 </li>
 </ul>

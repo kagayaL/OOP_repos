@@ -104,15 +104,40 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNewCard(ru.nsu.kagaya.task112.Card)" class="member-name-link">getNewCard</a><wbr>(<a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a>&nbsp;card)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCard(ru.nsu.kagaya.task112.Card)" class="member-name-link">addCard</a><wbr>(<a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a>&nbsp;card)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Добавляет в руку новую карту с перерасчетом очков.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSum()" class="member-name-link">getSum</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCard(int)" class="member-name-link">getCard</a><wbr>(int&nbsp;index)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Карта по индексу.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCardCount()" class="member-name-link">getCardCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Количество карт в руке.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLowAceCnt()" class="member-name-link">getLowAceCnt</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Количество тузов, считающихся за 1 очко.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSum()" class="member-name-link">getSum</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Функция для получения очков на руке.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlackjack()" class="member-name-link">isBlackjack</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Блэкджек — 21 из двух карт.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBust()" class="member-name-link">isBust</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Перебор (сумма больше 21).</div>
 </div>
 </div>
 </div>
@@ -146,13 +171,15 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getNewCard(ru.nsu.kagaya.task112.Card)">
-<h3>getNewCard</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">getNewCard</span><wbr><span class="parameters">(<a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a>&nbsp;card)</span></div>
+<section class="detail" id="addCard(ru.nsu.kagaya.task112.Card)">
+<h3>addCard</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addCard</span><wbr><span class="parameters">(<a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a>&nbsp;card)</span></div>
 <div class="block">Добавляет в руку новую карту с перерасчетом очков.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>card</code> - новая карта</dd>
+<dt>Returns:</dt>
+<dd>true, если добавленный туз считается за 1 очко</dd>
 </dl>
 </section>
 </li>
@@ -164,6 +191,63 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>сумма очков</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getCardCount()">
+<h3>getCardCount</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCardCount</span>()</div>
+<div class="block">Количество карт в руке.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>количество карт</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getCard(int)">
+<h3>getCard</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.nsu.kagaya.task112">Card</a></span>&nbsp;<span class="element-name">getCard</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+<div class="block">Карта по индексу.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>index</code> - индекс карты</dd>
+<dt>Returns:</dt>
+<dd>карта</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getLowAceCnt()">
+<h3>getLowAceCnt</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLowAceCnt</span>()</div>
+<div class="block">Количество тузов, считающихся за 1 очко.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>количество "низких" тузов</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isBust()">
+<h3>isBust</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBust</span>()</div>
+<div class="block">Перебор (сумма больше 21).</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если сумма превысила 21</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isBlackjack()">
+<h3>isBlackjack</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlackjack</span>()</div>
+<div class="block">Блэкджек — 21 из двух карт.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если 21 из двух карт</dd>
 </dl>
 </section>
 </li>
