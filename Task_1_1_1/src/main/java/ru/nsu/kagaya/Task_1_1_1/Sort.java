@@ -22,7 +22,7 @@ public class Sort {
 
     }
 
-    private static void swap(int ind1, int ind2, int[] array) {
+    private static void swap(int ind1, int ind2, int[] array) { //function for swap
         int temp = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = temp;
