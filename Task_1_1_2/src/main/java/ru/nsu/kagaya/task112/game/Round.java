@@ -1,12 +1,11 @@
 package ru.nsu.kagaya.task112.game;
 
+import java.util.Random;
 import ru.nsu.kagaya.task112.card.Card;
 import ru.nsu.kagaya.task112.card.Deck;
 import ru.nsu.kagaya.task112.player.Dealer;
 import ru.nsu.kagaya.task112.player.Player;
 import ru.nsu.kagaya.task112.ui.ConsoleUI;
-
-import java.util.Random;
 
 /**
  * Класс, реализующий один раунд игры:
@@ -24,7 +23,7 @@ public class Round {
      *
      * @param ui     консольный ввод-вывод
      */
-    public Round( ConsoleUI ui) {
+    public Round(ConsoleUI ui) {
         this.ui = ui;
     }
 

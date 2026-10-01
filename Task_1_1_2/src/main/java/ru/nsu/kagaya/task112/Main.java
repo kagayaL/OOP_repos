@@ -1,9 +1,8 @@
 package ru.nsu.kagaya.task112;
 
+import java.util.Scanner;
 import ru.nsu.kagaya.task112.game.Game;
 import ru.nsu.kagaya.task112.ui.ConsoleUI;
-
-import java.util.Scanner;
 
 /**
  * Точка входа.

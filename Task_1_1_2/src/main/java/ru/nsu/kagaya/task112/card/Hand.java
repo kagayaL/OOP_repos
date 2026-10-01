@@ -1,9 +1,9 @@
 package ru.nsu.kagaya.task112.card;
 
+import static ru.nsu.kagaya.task112.card.Rank.ACE;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static ru.nsu.kagaya.task112.card.Rank.ACE;
 
 /**
  * Класс, реализующий руку с картами.

@@ -1,14 +1,12 @@
 package ru.nsu.kagaya.task112.game;
 
-import ru.nsu.kagaya.task112.Main;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
+import ru.nsu.kagaya.task112.Main;
 
 
 class MainTest {

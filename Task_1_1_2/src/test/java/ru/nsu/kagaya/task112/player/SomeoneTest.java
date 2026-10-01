@@ -1,12 +1,12 @@
 package ru.nsu.kagaya.task112.player;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 import ru.nsu.kagaya.task112.card.Card;
 import ru.nsu.kagaya.task112.card.Rank;
 import ru.nsu.kagaya.task112.card.Suit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Test;
 
 class SomeoneTest {
 

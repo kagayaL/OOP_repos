@@ -1,10 +1,9 @@
 package ru.nsu.kagaya.task112.ui;
 
+import java.util.Scanner;
 import ru.nsu.kagaya.task112.card.Card;
 import ru.nsu.kagaya.task112.game.RoundResult;
 import ru.nsu.kagaya.task112.player.Someone;
-
-import java.util.Scanner;
 
 /**
  * Класс для консольного ввода-вывода.
