@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.kagaya.task112"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.kagaya.task112"},{"l":"ru.nsu.kagaya.task112.card"},{"l":"ru.nsu.kagaya.task112.game"},{"l":"ru.nsu.kagaya.task112.player"},{"l":"ru.nsu.kagaya.task112.ui"}];updateSearchResults();
