@@ -1,4 +1,6 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.player;
+
+import ru.nsu.kagaya.task112.game.Rules;
 
 /**
  * Дилер.

@@ -1,6 +1,9 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.card;
 
-import static ru.nsu.kagaya.task112.Rank.ACE;
+import java.util.ArrayList;
+import java.util.List;
+
+import static ru.nsu.kagaya.task112.card.Rank.ACE;
 
 /**
  * Класс, реализующий руку с картами.
@@ -8,10 +11,8 @@ import static ru.nsu.kagaya.task112.Rank.ACE;
 public class Hand {
     private static final int BLACKJACK = 21;
     private static final int ACE_DIFFERENCE = 10;
-    private static final int HAND_CAPACITY = 100;
 
-    private final Card[] cards = new Card[HAND_CAPACITY];
-    private int cardCount = 0;
+    private final List<Card> cards = new ArrayList<>();
     private int currSum = 0;
     private int highAceCnt = 0;
     private int lowAceCnt = 0;
@@ -24,7 +25,7 @@ public class Hand {
      */
     public boolean addCard(Card card) {
         boolean isAceLow = false;
-        cards[cardCount++] = card;
+        cards.add(card);
         if (card.getRank() == ACE) {
             highAceCnt++;
         }
@@ -53,7 +54,7 @@ public class Hand {
      * @return количество карт
      */
     public int getCardCount() {
-        return cardCount;
+        return cards.size();
     }
 
     /**
@@ -63,7 +64,7 @@ public class Hand {
      * @return карта
      */
     public Card getCard(int index) {
-        return cards[index];
+        return cards.get(index);
     }
 
     /**
@@ -90,6 +91,6 @@ public class Hand {
      * @return true, если 21 из двух карт
      */
     public boolean isBlackjack() {
-        return cardCount == 2 && currSum == BLACKJACK;
+        return cards.size() == 2 && currSum == BLACKJACK;
     }
 }

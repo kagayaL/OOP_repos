@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.card;
 
 /**
  * Ранг и стоимость карты.
@@ -20,6 +20,8 @@ public enum Rank {
 
     private final int value;
     private final String name;
+
+
 
     Rank(int value, String name) {
         this.value = value;

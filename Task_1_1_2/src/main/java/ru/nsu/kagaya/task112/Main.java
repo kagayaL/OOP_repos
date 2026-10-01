@@ -1,5 +1,8 @@
 package ru.nsu.kagaya.task112;
 
+import ru.nsu.kagaya.task112.game.Game;
+import ru.nsu.kagaya.task112.ui.ConsoleUI;
+
 import java.util.Scanner;
 
 /**

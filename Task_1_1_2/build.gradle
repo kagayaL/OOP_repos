@@ -5,7 +5,7 @@ plugins {
 }
 
 application {
-    mainClass = 'ru.nsu.kagaya.Task_1_1_2.Main'  // ← ЭТОГО НЕ ХВАТАЕТ
+    mainClass = 'ru.nsu.kagaya.task112.Main'
 }
 
 

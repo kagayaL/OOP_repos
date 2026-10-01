@@ -1,9 +1,12 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.player;
+
+import ru.nsu.kagaya.task112.card.Hand;
+import ru.nsu.kagaya.task112.card.Rank;
 
 /**
  * Класс, реализующий сущность, владеющую картами.
  */
-public abstract class Someone {
+public class Someone {
     private final Hand hand = new Hand();
     private final String name;
 

@@ -1,5 +1,7 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.card;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Random;
  */
 public class Deck {
     private static final int DECK_SIZE = 52;
-    private final Card[] deck;
+    private final List<Card> deck;
     private int currentCardInd = 0;
 
 
@@ -17,7 +19,7 @@ public class Deck {
      * @return следующую карту
      */
     public Card getNextCard() {
-        return deck[currentCardInd++];
+        return deck.get(currentCardInd++);
     }
 
     /**
@@ -25,20 +27,20 @@ public class Deck {
      *
      * @return колода с картами
      */
-    public Card[] getDeck() {
+    public List<Card> getDeck() {
         return deck;
     }
 
     private void shuffleDeck() {
         // каждую карту в колоде меняю с другой рандомной картой
-        Random rand = new Random();
-        int total = deck.length;
+        Random random = new Random();
+        int total = deck.size();
 
         for (int i = 0; i < total; i++) {
-            int newPosition = rand.nextInt(total);
-            Card temp = deck[i];
-            deck[i] = deck[newPosition];
-            deck[newPosition] = temp;
+            int newPosition = random.nextInt(total);
+            Card temp = deck.get(i);
+            deck.set(i, deck.get(newPosition));
+            deck.set(newPosition, temp);
         }
     }
 
@@ -49,13 +51,13 @@ public class Deck {
      */
     public Deck(int deckCount) {
         this.currentCardInd = 0;
-        this.deck = new Card[DECK_SIZE * deckCount];
+        this.deck = new ArrayList<>(DECK_SIZE * deckCount);
 
         int ind = 0;
         for (int i = 0; i < deckCount; i++) {
             for (Suit suit : Suit.values()) {
                 for (Rank rank : Rank.values()) {
-                    deck[ind++] = new Card(suit, rank);
+                    deck.add(new Card(suit, rank));
                 }
             }
         }

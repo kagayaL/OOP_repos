@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.card;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.List;
 
 class DeckTest {
 
@@ -29,10 +31,10 @@ class DeckTest {
     @Test
     void getNextCard() {
         Deck deck = new Deck(1);
-        Card[] cards = deck.getDeck();
+        List<Card> cards = deck.getDeck();
 
-        assertEquals(cards[0], deck.getNextCard());
-        assertEquals(cards[1], deck.getNextCard());
-        assertEquals(cards[2], deck.getNextCard());
+        assertEquals(cards.get(0), deck.getNextCard());
+        assertEquals(cards.get(1), deck.getNextCard());
+        assertEquals(cards.get(2), deck.getNextCard());
     }
 }

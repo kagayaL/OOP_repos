@@ -1,4 +1,6 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.game;
+
+import ru.nsu.kagaya.task112.Main;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 

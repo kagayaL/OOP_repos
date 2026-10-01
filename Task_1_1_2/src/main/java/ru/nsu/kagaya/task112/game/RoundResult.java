@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.game;
 
 /**
  * Исход раунда.

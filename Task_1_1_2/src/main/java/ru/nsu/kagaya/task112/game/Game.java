@@ -1,4 +1,6 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.game;
+
+import ru.nsu.kagaya.task112.ui.ConsoleUI;
 
 /**
  * Класс для проведения игры:
@@ -8,7 +10,6 @@ public class Game {
     private final ConsoleUI ui;
     private int playerScore = 0;
     private int dealerScore = 0;
-    private int roundNumber = 0;
 
     /**
      * Конструктор.
@@ -23,17 +24,18 @@ public class Game {
      * Проводит раунды по желанию пользователя.
      */
     public void run() {
+        int roundNumber = 1;
         while (ui.wantsNextRound()) {
-            nextRound();
+            nextRound(roundNumber++);
         }
     }
 
     /**
      * Проводит один раунд и обновляет счет.
      */
-    public void nextRound() {
-        roundNumber++;
-        RoundResult result = new Round(roundNumber, ui).play();
+    private void nextRound(int roundNumber) {
+
+        RoundResult result = new Round(ui).play(roundNumber);
         if (result == RoundResult.PLAYER_WIN) {
             playerScore++;
         } else if (result == RoundResult.DEALER_WIN) {
