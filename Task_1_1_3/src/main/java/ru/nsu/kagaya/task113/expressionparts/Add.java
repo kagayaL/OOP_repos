@@ -2,10 +2,18 @@ package ru.nsu.kagaya.task113.expressionparts;
 
 import java.util.Map;
 
+/**
+ * Класс с суммой
+ */
 public class Add extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**
+     * Конструктор суммы
+     * @param left слагаемое 1
+     * @param right слагаемое 2
+     */
     public Add(Expression left, Expression right) {
         this.left = left;
         this.right = right;

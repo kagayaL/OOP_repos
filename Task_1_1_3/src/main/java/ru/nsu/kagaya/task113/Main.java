@@ -6,10 +6,15 @@ import ru.nsu.kagaya.task113.expressionparts.Number;
 import ru.nsu.kagaya.task113.expressionparts.Expression;
 import ru.nsu.kagaya.task113.expressionparts.Variable;
 
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Класс с главным методом.
+ */
 public class Main {
+    /**
+     * Главный метод с проверкой кода.
+     *
+     * @param args их нет
+     */
     public static void main(String[] args) {
 
         Expression e = new Add(new Number(3), new Mul(new Number(2),

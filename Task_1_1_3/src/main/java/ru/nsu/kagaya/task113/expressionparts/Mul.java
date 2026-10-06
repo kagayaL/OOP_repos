@@ -2,10 +2,18 @@ package ru.nsu.kagaya.task113.expressionparts;
 
 import java.util.Map;
 
+/**
+ * Класс реализующий произведение
+ */
 public class Mul extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**
+     * Конструктор произведения
+     * @param left первый множитель
+     * @param right второй множитель
+     */
     public Mul(Expression left, Expression right) {
         this.left = left;
         this.right = right;

@@ -2,9 +2,16 @@ package ru.nsu.kagaya.task113.expressionparts;
 
 import java.util.Map;
 
+/**
+ * Реализует константу
+ */
 public class Number extends Expression {
     private final int value;
 
+    /**
+     * Конструктор константы
+     * @param value значение константы
+     */
     public Number(int value) {
         this.value = value;
     }
