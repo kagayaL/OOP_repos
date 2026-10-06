@@ -1,5 +1,6 @@
 package ru.nsu.kagaya.task113.parser;
 
+import java.util.List;
 import ru.nsu.kagaya.task113.expressionparts.Add;
 import ru.nsu.kagaya.task113.expressionparts.Div;
 import ru.nsu.kagaya.task113.expressionparts.Expression;
@@ -7,8 +8,6 @@ import ru.nsu.kagaya.task113.expressionparts.Mul;
 import ru.nsu.kagaya.task113.expressionparts.Number;
 import ru.nsu.kagaya.task113.expressionparts.Sub;
 import ru.nsu.kagaya.task113.expressionparts.Variable;
-
-import java.util.List;
 
 /**
  * Класс для парсинга выражений.
@@ -56,6 +55,8 @@ public class ParseExpression {
                         return new Mul(left, right);
                     case '/':
                         return new Div(left, right);
+                    default:
+                        return null;
                 }
             }
         }
@@ -72,8 +73,7 @@ public class ParseExpression {
 
             if (currentChar == RIGHT_BORDER) {
                 borderCount++;
-            }
-            else if (currentChar == LEFT_BORDER) {
+            } else if (currentChar == LEFT_BORDER) {
                 borderCount--;
             }
 
@@ -104,8 +104,7 @@ public class ParseExpression {
 
             if (currentChar == LEFT_BORDER) {
                 borderCount++;
-            }
-            else if (currentChar == RIGHT_BORDER) {
+            } else if (currentChar == RIGHT_BORDER) {
                 borderCount--;
             }
 

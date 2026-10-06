@@ -1,5 +1,8 @@
 package ru.nsu.kagaya.task113.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.kagaya.task113.expressionparts.Add;
 import ru.nsu.kagaya.task113.expressionparts.Div;
@@ -8,9 +11,6 @@ import ru.nsu.kagaya.task113.expressionparts.Mul;
 import ru.nsu.kagaya.task113.expressionparts.Number;
 import ru.nsu.kagaya.task113.expressionparts.Sub;
 import ru.nsu.kagaya.task113.expressionparts.Variable;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParseExpressionTest {
 

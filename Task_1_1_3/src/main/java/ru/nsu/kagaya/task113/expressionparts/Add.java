@@ -11,6 +11,7 @@ public class Add extends Expression {
 
     /**
      * Конструктор суммы.
+     *
      * @param left слагаемое 1.
      * @param right слагаемое 2.
      */

@@ -1,15 +1,13 @@
 package ru.nsu.kagaya.task113;
 
-import ru.nsu.kagaya.task113.expressionparts.Add;
-import ru.nsu.kagaya.task113.expressionparts.Mul;
-import ru.nsu.kagaya.task113.expressionparts.Number;
-import ru.nsu.kagaya.task113.expressionparts.Expression;
-import ru.nsu.kagaya.task113.expressionparts.Variable;
-import ru.nsu.kagaya.task113.parser.ParseExpression;
+import static ru.nsu.kagaya.task113.parser.ParseExpression.parseExpression;
 
 import java.util.Scanner;
-
-import static ru.nsu.kagaya.task113.parser.ParseExpression.parseExpression;
+import ru.nsu.kagaya.task113.expressionparts.Add;
+import ru.nsu.kagaya.task113.expressionparts.Expression;
+import ru.nsu.kagaya.task113.expressionparts.Mul;
+import ru.nsu.kagaya.task113.expressionparts.Number;
+import ru.nsu.kagaya.task113.expressionparts.Variable;
 
 /**
  * Класс с главным методом.

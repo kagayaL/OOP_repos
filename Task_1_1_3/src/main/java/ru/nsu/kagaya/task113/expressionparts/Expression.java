@@ -1,9 +1,8 @@
 package ru.nsu.kagaya.task113.expressionparts;
 
+import java.util.Map;
 import ru.nsu.kagaya.task113.console.Console;
 import ru.nsu.kagaya.task113.parser.ParseVariables;
-
-import java.util.Map;
 
 /**
  * Общий класс всех выражений.
@@ -35,18 +34,17 @@ public abstract class Expression {
     }
 
     /**
+     * Метод для вывода выражения в консоль.
+     */
+    public void print() {
+        Console.print(this.toString());
+    }
+
+    /**
      * Основной метод для вычисления выражений. Подставляет вместо переменных их значения.
      *
      * @param values хеш таблица имя - значение.
      * @return результат вычисления.
      */
     protected abstract int eval(Map<String, Integer> values);
-
-    /**
-     * Метод для вывода выражения в консоль
-     */
-    public void print() {
-        Console.print(this.toString());
-    }
-
 }

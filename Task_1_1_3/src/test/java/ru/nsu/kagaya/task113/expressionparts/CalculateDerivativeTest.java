@@ -2,10 +2,9 @@ package ru.nsu.kagaya.task113.expressionparts;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 class CalculateDerivativeTest {
 
@@ -24,7 +23,7 @@ class CalculateDerivativeTest {
     @Test
     void calculate2() {
         // (X - 5) / X
-        Expression e = new Div(new Sub(new Variable("x"), new Number(5) ), new Variable("x"));
+        Expression e = new Div(new Sub(new Variable("x"), new Number(5)), new Variable("x"));
         int result = e.eval("x = 5");
         assertEquals(0, result);
         //Производная по X
@@ -39,7 +38,7 @@ class CalculateDerivativeTest {
         Map<String, Integer> values = new HashMap<>();
         values.put("x", 5);
 
-        Expression e = new Div(new Add(new Variable("x"), new Number(5) ), new Variable("x"));
+        Expression e = new Div(new Add(new Variable("x"), new Number(5)), new Variable("x"));
         int result = e.eval(values);
 
         assertEquals(2, result);
