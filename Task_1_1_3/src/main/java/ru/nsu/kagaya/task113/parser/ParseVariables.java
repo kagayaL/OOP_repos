@@ -20,6 +20,10 @@ public class ParseVariables {
 
         Map<String, Integer> valuesMap = new HashMap<String, Integer>();
 
+        if (variables == null || variables.isBlank()) {
+            return valuesMap;
+        }
+
         variables = variables.replace(" ", "");
         List<String> variablesList = List.of(variables.split(";"));
 
