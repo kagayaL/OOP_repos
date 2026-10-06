@@ -4,7 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class CalculateTest {
+import java.util.HashMap;
+import java.util.Map;
+
+class CalculateDerivativeTest {
 
     @Test
     void calculate1() {
@@ -14,7 +17,6 @@ class CalculateTest {
         Expression de = e.derivative("x");
         int result = de.eval("x = 3");
         assertEquals(6, result);
-
         result = e.eval("x = 6");
         assertEquals(36, result);
     }
@@ -29,6 +31,19 @@ class CalculateTest {
         Expression de = e.derivative("x");
         result = de.eval("x = 2");
         assertEquals(1, result);
+    }
+
+    @Test
+    void calculate3() {
+        // (X + 5) / X
+        Map<String, Integer> values = new HashMap<>();
+        values.put("x", 5);
+
+        Expression e = new Div(new Add(new Variable("x"), new Number(5) ), new Variable("x"));
+        int result = e.eval(values);
+
+        assertEquals(2, result);
+
     }
 
 }
