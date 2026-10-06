@@ -3,16 +3,17 @@ package ru.nsu.kagaya.task113.expressionparts;
 import java.util.Map;
 
 /**
- * Реализация разности
+ * Реализация разности.
  */
 public class Sub extends Expression {
     private final Expression left;
     private final Expression right;
 
     /**
-     * Конструктор для разности
-     * @param left уменьшаемое
-     * @param right вычитаемое
+     * Конструктор для разности.
+     *
+     * @param left уменьшаемое.
+     * @param right вычитаемое.
      */
     public Sub(Expression left, Expression right) {
         this.left = left;

@@ -1,8 +1,8 @@
 package ru.nsu.kagaya.task113.expressionparts;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class CalculateTest {
 
@@ -24,7 +24,7 @@ class CalculateTest {
         // (X - 5) / X
         Expression e = new Div(new Sub(new Variable("x"), new Number(5) ), new Variable("x"));
         int result = e.eval("x = 5");
-        assertEquals(0, result );
+        assertEquals(0, result);
         //Производная по X
         Expression de = e.derivative("x");
         result = de.eval("x = 2");

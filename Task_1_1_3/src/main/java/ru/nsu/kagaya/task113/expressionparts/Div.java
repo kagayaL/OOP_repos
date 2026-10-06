@@ -3,16 +3,17 @@ package ru.nsu.kagaya.task113.expressionparts;
 import java.util.Map;
 
 /**
- * Класс реализующий деление
+ * Класс реализующий деление.
  */
 public class Div extends Expression {
     private final Expression left;
     private final Expression right;
 
     /**
-     * Конструктор деления
-     * @param left делимое
-     * @param right делитель
+     * Конструктор деления.
+     *
+     * @param left делимое.
+     * @param right делитель.
      */
     public Div(Expression left, Expression right) {
         this.left = left;

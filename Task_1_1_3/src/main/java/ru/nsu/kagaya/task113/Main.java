@@ -13,7 +13,7 @@ public class Main {
     /**
      * Главный метод с проверкой кода.
      *
-     * @param args их нет
+     * @param args их нет.
      */
     public static void main(String[] args) {
 
