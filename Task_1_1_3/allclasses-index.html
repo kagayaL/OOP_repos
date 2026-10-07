@@ -15,7 +15,11 @@
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="all-classes-index-page">
-<script type="text/javascript">var pathtoroot = "./";
+<script type="text/javascript">var evenRowColor = "even-row-color";
+var oddRowColor = "odd-row-color";
+var tableTab = "table-tab";
+var activeTableTab = "active-table-tab";
+var pathtoroot = "./";
 loadScripts(document, 'script');</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -50,53 +54,53 @@ loadScripts(document, 'script');</script>
 <h1 title="All Classes and Interfaces" class="title">All Classes and Interfaces</h1>
 </div>
 <div id="all-classes-table">
-<div class="caption"><span>Classes</span></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="all-classes-table-tab0" role="tab" aria-selected="true" aria-controls="all-classes-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="all-classes-table-tab2" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab2', 2)" class="table-tab">Classes</button><button id="all-classes-table-tab3" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab3', 2)" class="table-tab">Enum Classes</button></div>
+<div id="all-classes-table.tabpanel" role="tabpanel" aria-labelledby="all-classes-table-tab0">
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Add.html" title="class in ru.nsu.kagaya.task113.expressionparts">Add</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Add.html" title="class in ru.nsu.kagaya.task113.bricks">Add</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс с суммой.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/console/Console.html" title="class in ru.nsu.kagaya.task113.console">Console</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Div.html" title="class in ru.nsu.kagaya.task113.bricks">Div</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Класс реализующий консольный вывод.</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Div.html" title="class in ru.nsu.kagaya.task113.expressionparts">Div</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс реализующий деление.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Expression.html" title="class in ru.nsu.kagaya.task113.expressionparts">Expression</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Expression.html" title="class in ru.nsu.kagaya.task113.bricks">Expression</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Общий класс всех выражений.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/Main.html" title="class in ru.nsu.kagaya.task113">Main</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/Main.html" title="class in ru.nsu.kagaya.task113">Main</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс с главным методом.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Mul.html" title="class in ru.nsu.kagaya.task113.expressionparts">Mul</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Mul.html" title="class in ru.nsu.kagaya.task113.bricks">Mul</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс реализующий произведение.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Number.html" title="class in ru.nsu.kagaya.task113.expressionparts">Number</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Number.html" title="class in ru.nsu.kagaya.task113.bricks">Number</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Реализует константу.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/parser/ParseExpression.html" title="class in ru.nsu.kagaya.task113.parser">ParseExpression</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/parser/ParseExpression.html" title="class in ru.nsu.kagaya.task113.parser">ParseExpression</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс для парсинга выражений.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/parser/ParseVariables.html" title="class in ru.nsu.kagaya.task113.parser">ParseVariables</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/parser/ParseVariables.html" title="class in ru.nsu.kagaya.task113.parser">ParseVariables</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс для парсинга переменных и их значений в хеш таблицу.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Sub.html" title="class in ru.nsu.kagaya.task113.expressionparts">Sub</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Sub.html" title="class in ru.nsu.kagaya.task113.bricks">Sub</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Реализация разности.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/expressionparts/Variable.html" title="class in ru.nsu.kagaya.task113.expressionparts">Variable</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ru/nsu/kagaya/task113/parser/Token.html" title="enum class in ru.nsu.kagaya.task113.parser">Token</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ru/nsu/kagaya/task113/bricks/Variable.html" title="class in ru.nsu.kagaya.task113.bricks">Variable</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Класс с переменной.</div>
+</div>
 </div>
 </div>
 </div>
