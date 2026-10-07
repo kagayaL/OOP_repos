@@ -3,11 +3,8 @@ package ru.nsu.kagaya.task113;
 import static ru.nsu.kagaya.task113.parser.ParseExpression.parseExpression;
 
 import java.util.Scanner;
-import ru.nsu.kagaya.task113.expressionparts.Add;
-import ru.nsu.kagaya.task113.expressionparts.Expression;
-import ru.nsu.kagaya.task113.expressionparts.Mul;
-import ru.nsu.kagaya.task113.expressionparts.Number;
-import ru.nsu.kagaya.task113.expressionparts.Variable;
+
+import ru.nsu.kagaya.task113.bricks.Expression;
 
 /**
  * Класс с главным методом.
@@ -19,19 +16,22 @@ public class Main {
      * @param args их нет.
      */
     public static void main(String[] args) {
-
-        Expression e = new Add(new Number(3), new Mul(new Number(2),
-                new Variable("x"))); // (3+(2*x))
-        e.print();
-        Expression de = e.derivative("x");
-        de.print();
-        int result = e.eval("x = 10; y = 13");
-        System.out.println(result);
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введи выражение: ");
         String input = scanner.nextLine();
-        e = parseExpression(input);
-        e.print();
-        result = e.eval("x = 10; y = 13");
+        Expression e = parseExpression(input);
+
+        System.out.println("Введи переменную для дифференцирования:");
+        input = scanner.nextLine();
+        System.out.println("Производная по " + input + ":");
+        e.derivative(input).print();
+
+        System.out.println("Введи переменные в формате" +
+                " name1 = value1 ; name2 = value2 ; ...");
+        input = scanner.nextLine();
+        System.out.println("Результат выражения: ");
+        int result = e.eval(input);
         System.out.println(result);
     }
 }

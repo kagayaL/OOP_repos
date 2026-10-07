@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task113.expressionparts;
+package ru.nsu.kagaya.task113.bricks;
 
 import org.junit.jupiter.api.Test;
 

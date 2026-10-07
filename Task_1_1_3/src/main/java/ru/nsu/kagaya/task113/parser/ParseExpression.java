@@ -1,21 +1,17 @@
 package ru.nsu.kagaya.task113.parser;
 
-import java.util.List;
-import ru.nsu.kagaya.task113.expressionparts.Add;
-import ru.nsu.kagaya.task113.expressionparts.Div;
-import ru.nsu.kagaya.task113.expressionparts.Expression;
-import ru.nsu.kagaya.task113.expressionparts.Mul;
-import ru.nsu.kagaya.task113.expressionparts.Number;
-import ru.nsu.kagaya.task113.expressionparts.Sub;
-import ru.nsu.kagaya.task113.expressionparts.Variable;
+import ru.nsu.kagaya.task113.bricks.Add;
+import ru.nsu.kagaya.task113.bricks.Div;
+import ru.nsu.kagaya.task113.bricks.Expression;
+import ru.nsu.kagaya.task113.bricks.Mul;
+import ru.nsu.kagaya.task113.bricks.Number;
+import ru.nsu.kagaya.task113.bricks.Sub;
+import ru.nsu.kagaya.task113.bricks.Variable;
 
 /**
  * Класс для парсинга выражений.
  */
 public class ParseExpression {
-    private static final Character RIGHT_BORDER = ')';
-    private static final Character LEFT_BORDER = '(';
-    private static final List<Character> OPS = List.of('+', '-', '/', '*');
 
     /**
      * Метод создающий структуру из строки.
@@ -27,7 +23,7 @@ public class ParseExpression {
         expr = expr.replace(" ", "");
         int borderCount = 0;
 
-        if (expr.charAt(0) != LEFT_BORDER) {
+        if (expr.charAt(0) != Token.LEFT_BORDER.getSymbol()) {
             if (Character.isDigit(expr.charAt(0))) {
                 return new Number(Integer.parseInt(expr));
             }
@@ -36,24 +32,24 @@ public class ParseExpression {
 
         for (int i = 0; i < expr.length(); i++) {
             char currentChar = expr.charAt(i);
+            Token currentToken = Token.getToken(currentChar);
 
-            if (currentChar == LEFT_BORDER) {
+            if (currentToken == Token.LEFT_BORDER) {
                 borderCount++;
-            }
-            else if (currentChar == RIGHT_BORDER) {
+            } else if (currentToken == Token.RIGHT_BORDER) {
                 borderCount--;
-            }
-            else if (borderCount == 1 && OPS.contains(currentChar)) {
-                Expression left = getLeftMonome(i - 1, expr);
-                Expression right = getRightMonome(i + 1, expr);
-                switch (currentChar) {
-                    case '+':
+            } else if (borderCount == 1 && currentToken != null &&
+                    currentToken.isOperator()) {
+                Expression left = getMonome(i - 1, expr, -1);
+                Expression right = getMonome(i + 1, expr, 1);
+                switch (currentToken) {
+                    case ADD:
                         return new Add(left, right);
-                    case '-':
+                    case SUB:
                         return new Sub(left, right);
-                    case '*':
+                    case MUL:
                         return new Mul(left, right);
-                    case '/':
+                    case DIV:
                         return new Div(left, right);
                     default:
                         return null;
@@ -64,64 +60,38 @@ public class ParseExpression {
         return null;
     }
 
-    private static Expression getLeftMonome(int currentPosition, String expr) {
+    private static Expression getMonome(int position, String expr, int step) {
         int borderCount = 0;
-        StringBuilder leftMonome = new StringBuilder();
+        StringBuilder monome = new StringBuilder();
 
-        while (currentPosition >= 0) {
-            char currentChar = expr.charAt(currentPosition);
+        while (position >= 0 && position < expr.length()) {
+            char currentChar = expr.charAt(position);
+            Token currentToken = Token.getToken(currentChar);
 
-            if (currentChar == RIGHT_BORDER) {
+            if (currentToken == Token.RIGHT_BORDER) {
                 borderCount++;
-            } else if (currentChar == LEFT_BORDER) {
+            } else if (currentToken == Token.LEFT_BORDER) {
                 borderCount--;
             }
 
-            leftMonome.append(currentChar);
+            monome.append(currentChar);
 
             if (borderCount == 0 && !Character.isLetterOrDigit(currentChar)) {
                 break;
             }
             if (borderCount == 0 && Character.isLetterOrDigit(currentChar)
-                    && (currentPosition == 0
-                    || !Character.isLetterOrDigit(expr.charAt(currentPosition - 1)))) {
+                    && (position + step < 0 || position + step >= expr.length()
+                    || !Character.isLetterOrDigit(expr.charAt(position + step)))) {
                 break;
             }
 
-            currentPosition--;
+            position += step;
         }
 
-        leftMonome.reverse();
-        return parseExpression(leftMonome.toString());
-    }
-
-    private static Expression getRightMonome(int currentPosition, String expr) {
-        int borderCount = 0;
-        StringBuilder rightMonome = new StringBuilder();
-
-        while (currentPosition < expr.length()) {
-            char currentChar = expr.charAt(currentPosition);
-
-            if (currentChar == LEFT_BORDER) {
-                borderCount++;
-            } else if (currentChar == RIGHT_BORDER) {
-                borderCount--;
-            }
-
-            rightMonome.append(currentChar);
-
-            if (borderCount == 0 && !Character.isLetterOrDigit(currentChar)) {
-                break;
-            }
-            if (borderCount == 0 && Character.isLetterOrDigit(currentChar)
-                    && (currentPosition == expr.length() - 1
-                    || !Character.isLetterOrDigit(expr.charAt(currentPosition + 1)))) {
-                break;
-            }
-
-            currentPosition++;
+        if (step < 0) {
+            monome.reverse();
         }
-
-        return parseExpression(rightMonome.toString());
+        return parseExpression(monome.toString());
     }
+
 }

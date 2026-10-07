@@ -1,7 +1,6 @@
-package ru.nsu.kagaya.task113.expressionparts;
+package ru.nsu.kagaya.task113.bricks;
 
 import java.util.Map;
-import ru.nsu.kagaya.task113.console.Console;
 import ru.nsu.kagaya.task113.parser.ParseVariables;
 
 /**
@@ -37,7 +36,7 @@ public abstract class Expression {
      * Метод для вывода выражения в консоль.
      */
     public void print() {
-        Console.print(this.toString());
+        System.out.println(this.toString());
     }
 
     /**
