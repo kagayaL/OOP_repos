@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.utils;
 
 import ru.nsu.kagaya.task112.graph.Graph;
 import ru.nsu.kagaya.task112.graph.types.AdjacencyListGraph;

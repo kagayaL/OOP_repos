@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.algorithms;
 
 import ru.nsu.kagaya.task112.graph.Graph;
 import ru.nsu.kagaya.task112.graph.bricks.Vertex;

@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.graph.bricks;
 
 public class Edge {
     private final int _from;

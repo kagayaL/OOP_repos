@@ -1,6 +1,8 @@
-package ru.nsu.kagaya.task112;
+package ru.nsu.kagaya.task112.graph.types;
 
-import java.io.File;
+import ru.nsu.kagaya.task112.graph.bricks.Vertex;
+import ru.nsu.kagaya.task112.graph.Graph;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +55,4 @@ public class AdjacencyMatrixGraph implements Graph {
         return neighbours;
     }
 
-    @Override
-    public Graph readGraph(File file) {
-        return null;
-    }
 }
