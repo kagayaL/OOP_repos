@@ -6,13 +6,13 @@ import java.util.Scanner;
  * Класс реализующий контроллер ввода.
  */
 public class InputController {
-    private final Scanner _scanner;
+    private final Scanner scanner;
 
     /**
      * Конструктор инициализирующий сканнер.
      */
     public InputController() {
-        _scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
     /**
@@ -21,7 +21,7 @@ public class InputController {
      * @return консольнный ввод.
      */
     public String getLine() {
-        return _scanner.next();
+        return scanner.next();
     }
 
 }

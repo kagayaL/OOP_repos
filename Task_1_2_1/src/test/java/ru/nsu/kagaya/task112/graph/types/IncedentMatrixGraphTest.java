@@ -1,8 +1,10 @@
 package ru.nsu.kagaya.task112.graph.types;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.kagaya.task112.graph.Graph;
 import ru.nsu.kagaya.task112.graph.bricks.Vertex;

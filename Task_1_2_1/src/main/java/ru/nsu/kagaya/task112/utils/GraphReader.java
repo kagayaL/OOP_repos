@@ -1,13 +1,13 @@
 package ru.nsu.kagaya.task112.utils;
 
-import ru.nsu.kagaya.task112.graph.bricks.Edge;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import ru.nsu.kagaya.task112.graph.bricks.Edge;
 
 /**
  * Класс для чтения графа определенного формата.

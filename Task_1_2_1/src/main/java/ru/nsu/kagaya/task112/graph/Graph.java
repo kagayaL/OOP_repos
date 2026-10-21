@@ -1,12 +1,12 @@
 package ru.nsu.kagaya.task112.graph;
 
+import java.io.IOException;
+import java.util.List;
+
 import ru.nsu.kagaya.task112.graph.bricks.Edge;
 import ru.nsu.kagaya.task112.utils.GraphData;
 import ru.nsu.kagaya.task112.utils.GraphReader;
 import ru.nsu.kagaya.task112.graph.bricks.Vertex;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * Интерфейс графа.

@@ -1,8 +1,8 @@
 package ru.nsu.kagaya.task112.utils;
 
-import ru.nsu.kagaya.task112.graph.bricks.Edge;
-
 import java.util.List;
+
+import ru.nsu.kagaya.task112.graph.bricks.Edge;
 
 /**
  * Класс описывающий граф.

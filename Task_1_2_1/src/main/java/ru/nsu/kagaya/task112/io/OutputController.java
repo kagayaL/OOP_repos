@@ -1,8 +1,8 @@
 package ru.nsu.kagaya.task112.io;
 
-import ru.nsu.kagaya.task112.graph.bricks.Vertex;
-
 import java.util.List;
+
+import ru.nsu.kagaya.task112.graph.bricks.Vertex;
 
 /**
  * Класс - контроллер вывода.

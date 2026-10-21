@@ -1,10 +1,10 @@
 package ru.nsu.kagaya.task112.algorithms;
 
-import ru.nsu.kagaya.task112.graph.Graph;
-import ru.nsu.kagaya.task112.graph.bricks.Vertex;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import ru.nsu.kagaya.task112.graph.Graph;
+import ru.nsu.kagaya.task112.graph.bricks.Vertex;
 
 /**
  * Топологическая сортировка вершин графа.
