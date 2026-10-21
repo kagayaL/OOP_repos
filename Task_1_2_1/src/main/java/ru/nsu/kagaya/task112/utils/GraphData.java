@@ -1,7 +1,6 @@
 package ru.nsu.kagaya.task112.utils;
 
 import java.util.List;
-
 import ru.nsu.kagaya.task112.graph.bricks.Edge;
 
 /**

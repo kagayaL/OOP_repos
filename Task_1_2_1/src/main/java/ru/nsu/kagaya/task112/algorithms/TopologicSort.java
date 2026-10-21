@@ -2,7 +2,6 @@ package ru.nsu.kagaya.task112.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import ru.nsu.kagaya.task112.graph.Graph;
 import ru.nsu.kagaya.task112.graph.bricks.Vertex;
 

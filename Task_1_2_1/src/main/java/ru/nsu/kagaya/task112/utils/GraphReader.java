@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import ru.nsu.kagaya.task112.graph.bricks.Edge;
 
 /**
