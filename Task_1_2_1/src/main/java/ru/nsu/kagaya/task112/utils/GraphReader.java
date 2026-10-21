@@ -41,7 +41,7 @@ public class GraphReader {
                     continue;
                 }
                 List<String> parts = Arrays.stream(line.split("\\s+")).toList();
-                int from = Integer.parseInt(parts.getFirst());
+                int from = Integer.parseInt(parts.get(0));
                 int to = Integer.parseInt(parts.get(1));
                 edges.add(new Edge(from, to));
             }
