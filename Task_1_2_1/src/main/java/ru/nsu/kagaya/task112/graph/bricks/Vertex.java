@@ -1,5 +1,7 @@
 package ru.nsu.kagaya.task112.graph.bricks;
 
+import java.util.Objects;
+
 /**
  * Класс реализующий вершину.
  */
@@ -32,5 +34,22 @@ public class Vertex {
      */
     public int getVertex() {
         return vertex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vertex)) {
+            return false;
+        }
+        Vertex other = (Vertex) o;
+        return vertex == other.vertex;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vertex);
     }
 }
