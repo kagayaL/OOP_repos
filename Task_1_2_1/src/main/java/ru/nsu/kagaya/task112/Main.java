@@ -6,9 +6,16 @@ import ru.nsu.kagaya.task112.io.InputController;
 import ru.nsu.kagaya.task112.io.OutputController;
 import ru.nsu.kagaya.task112.utils.GraphSetter;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Точка входа.
+ */
 public class Main {
+
+    /**
+     * Главный метод.
+     *
+     * @param args аргументы - их нет.
+     */
     public static void main(String[] args) {
 
         InputController inputController = new InputController();

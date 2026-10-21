@@ -8,13 +8,54 @@ import ru.nsu.kagaya.task112.graph.bricks.Vertex;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Интерфейс графа.
+ */
 public interface Graph {
-    void addVertex(Vertex vertex);
-    void removeVertex(Vertex vertex);
-    void addEdge(Vertex from, Vertex to);
-    void removeEdge(Vertex from, Vertex to);
-    List<Vertex> getNeightbours(Vertex vertex);
 
+    /**
+     * Добавляет вершину в граф.
+     *
+     * @param vertex вершина.
+     */
+    void addVertex(Vertex vertex);
+
+    /**
+     * Удаляет вершину из графа.
+     *
+     * @param vertex вершина.
+     */
+    void removeVertex(Vertex vertex);
+
+    /**
+     * Добавляет ребро между вершинами.
+     *
+     * @param from начальная вершина.
+     * @param to конечная вершина.
+     */
+    void addEdge(Vertex from, Vertex to);
+
+    /**
+     * Удаляет ребро между вершинами.
+     *
+     * @param from начальная вершина.
+     * @param to конечная вершина.
+     */
+    void removeEdge(Vertex from, Vertex to);
+
+    /**
+     * Возвращает соседей вершины.
+     *
+     * @param vertex вершина.
+     * @return список соседей.
+     */
+    List<Vertex> getNeighbors(Vertex vertex);
+
+    /**
+     * Читает граф из файла.
+     *
+     * @param path путь до файла.
+     */
     default void readGraph(String path) {
         try {
             GraphData data = GraphReader.readFromFile(path);

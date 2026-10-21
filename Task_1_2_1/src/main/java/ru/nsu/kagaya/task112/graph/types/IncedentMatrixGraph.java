@@ -7,20 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IncedentMatrixGraph implements Graph {
-    private List<List<Integer>> _matrix;
-    private int _edgeCount;
-    private int _vertexCount;
 
+    private final List<List<Integer>> graphMatrix;
+    private int vertexCount;
+
+    /**
+     * Конструктор инициализирует пустой граф.
+     */
     public IncedentMatrixGraph() {
-        _matrix = new ArrayList<>();
-        _edgeCount = 0;
-        _vertexCount = 0;
+        graphMatrix = new ArrayList<>();
+        vertexCount = 0;
     }
 
     @Override
     public void addVertex(Vertex vertex) {
-        _vertexCount++;
-        for (var edge : _matrix) {
+        vertexCount++;
+        for (var edge : graphMatrix) {
             edge.add(0);
         }
     }
@@ -28,21 +30,20 @@ public class IncedentMatrixGraph implements Graph {
     @Override
     public void removeVertex(Vertex vertex) {
         int vert = vertex.getVertex();
-        for (int i = _matrix.size() - 1; i >= 0; i--) {
-            if (_matrix.get(i).get(vert) != 0) {
-                _matrix.remove(i);
-                _edgeCount--;
+        for (int i = graphMatrix.size() - 1; i >= 0; i--) {
+            if (graphMatrix.get(i).get(vert) != 0) {
+                graphMatrix.remove(i);
             } else {
-                _matrix.get(i).remove(vert);
+                graphMatrix.get(i).remove(vert);
             }
         }
-        _vertexCount--;
+        vertexCount--;
     }
 
     @Override
     public void addEdge(Vertex from, Vertex to) {
         List<Integer> edge = new ArrayList<>();
-        for (int i = 0; i < _vertexCount; i++) {
+        for (int i = 0; i < vertexCount; i++) {
             if (i == from.getVertex()) {
                 edge.add(1);
             } else if (i == to.getVertex()) {
@@ -51,32 +52,30 @@ public class IncedentMatrixGraph implements Graph {
                 edge.add(0);
             }
         }
-        _matrix.add(edge);
-        _edgeCount++;
+        graphMatrix.add(edge);
     }
 
     @Override
     public void removeEdge(Vertex from, Vertex to) {
-        for (int i = _matrix.size() - 1; i >= 0; i--) {
-            List<Integer> edge = _matrix.get(i);
+        for (int i = graphMatrix.size() - 1; i >= 0; i--) {
+            List<Integer> edge = graphMatrix.get(i);
 
             if (edge.get(from.getVertex()) == 1
                     && edge.get(to.getVertex()) == -1) {
-                _matrix.remove(i);
-                _edgeCount--;
+                graphMatrix.remove(i);
                 break;
             }
         }
     }
 
     @Override
-    public List<Vertex> getNeightbours(Vertex vertex) {
+    public List<Vertex> getNeighbors(Vertex vertex) {
         List<Vertex> neighbours = new ArrayList<>();
         int vert = vertex.getVertex();
 
-        for (List<Integer> edge : _matrix) {
+        for (List<Integer> edge : graphMatrix) {
             if (edge.get(vert) == 1) {
-                for (int i = 0; i < _vertexCount; i++) {
+                for (int i = 0; i < vertexCount; i++) {
                     if (edge.get(i) == -1 && !neighbours.contains(new Vertex(i))) {
                         neighbours.add(new Vertex(i));
                         break;

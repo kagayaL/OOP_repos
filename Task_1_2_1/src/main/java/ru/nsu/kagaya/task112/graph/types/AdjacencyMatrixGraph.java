@@ -7,16 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyMatrixGraph implements Graph {
-    private final List<List<Integer>> _matrix;
+    private final List<List<Integer>> graphMatrix;
 
+    /**
+     * Конструктор инициализирует пустой граф.
+     */
     public AdjacencyMatrixGraph() {
-        _matrix = new ArrayList<>();
+        graphMatrix = new ArrayList<>();
     }
 
     @Override
     public void addVertex(Vertex vertex) {
-        _matrix.add(new ArrayList<>());
-        for (List<Integer> row : _matrix) {
+        graphMatrix.add(new ArrayList<>());
+        for (List<Integer> row : graphMatrix) {
             row.add(0);
         }
     }
@@ -25,27 +28,27 @@ public class AdjacencyMatrixGraph implements Graph {
     public void removeVertex(Vertex vertex) {
         int vert = vertex.getVertex();
 
-        _matrix.remove(vert);
+        graphMatrix.remove(vert);
 
-        for (List<Integer> row : _matrix) {
+        for (List<Integer> row : graphMatrix) {
             row.remove(vert);
         }
     }
 
     @Override
     public void addEdge(Vertex from, Vertex to) {
-        _matrix.get(from.getVertex()).set(to.getVertex(), 1);
+        graphMatrix.get(from.getVertex()).set(to.getVertex(), 1);
     }
 
     @Override
     public void removeEdge(Vertex from, Vertex to) {
-        _matrix.get(from.getVertex()).set(to.getVertex(), 0);
+        graphMatrix.get(from.getVertex()).set(to.getVertex(), 0);
     }
 
     @Override
-    public List<Vertex> getNeightbours(Vertex vertex) {
+    public List<Vertex> getNeighbors(Vertex vertex) {
         List<Vertex> neighbours = new ArrayList<>();
-        List<Integer> row = _matrix.get(vertex.getVertex());
+        List<Integer> row = graphMatrix.get(vertex.getVertex());
 
         for (int i = 0; i < row.size(); i++) {
             if (row.get(i) != 0) {

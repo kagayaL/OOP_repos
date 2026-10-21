@@ -6,8 +6,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Класс для чтения графа определенного формата.
+ */
 public class GraphReader {
 
     /**
@@ -36,9 +40,9 @@ public class GraphReader {
                 if (line.isEmpty()) {
                     continue;
                 }
-                String[] parts = line.split("\\s+");
-                int from = Integer.parseInt(parts[0]);
-                int to = Integer.parseInt(parts[1]);
+                List<String> parts = Arrays.stream(line.split("\\s+")).toList();
+                int from = Integer.parseInt(parts.getFirst());
+                int to = Integer.parseInt(parts.get(1));
                 edges.add(new Edge(from, to));
             }
 

@@ -19,12 +19,17 @@ public class TopologicSort {
      * @return список вершин в топологическом порядке
      */
     public static List<Vertex> sort(Graph graph, int vertexCount) {
-        boolean[] visited = new boolean[vertexCount];
-        boolean[] inStack = new boolean[vertexCount];
+        List<Boolean> visited = new ArrayList<>();
+        List<Boolean> inStack = new ArrayList<>();
         List<Vertex> order = new ArrayList<>();
 
         for (int i = 0; i < vertexCount; i++) {
-            if (!visited[i]) {
+            visited.add(Boolean.FALSE);
+            inStack.add(Boolean.FALSE);
+        }
+
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited.get(i)) {
                 dfs(graph, new Vertex(i), visited, inStack, order);
             }
         }
@@ -36,24 +41,24 @@ public class TopologicSort {
         return result;
     }
 
-    private static void dfs(Graph graph, Vertex vertex, boolean[] visited,
-                            boolean[] inStack, List<Vertex> order) {
+    private static void dfs(Graph graph, Vertex vertex, List<Boolean> visited,
+                            List<Boolean> inStack, List<Vertex> order) {
         int v = vertex.getVertex();
-        visited[v] = true;
-        inStack[v] = true;
+        visited.set(v, Boolean.TRUE);
+        inStack.set(v, Boolean.TRUE);
 
-        for (Vertex neighbour : graph.getNeightbours(vertex)) {
+        for (Vertex neighbour : graph.getNeighbors(vertex)) {
             int n = neighbour.getVertex();
 
-            if (inStack[n]) {
+            if (inStack.get(n)) {
                 throw new IllegalArgumentException("Граф содержит цикл");
             }
-            if (!visited[n]) {
+            if (!visited.get(n)) {
                 dfs(graph, neighbour, visited, inStack, order);
             }
         }
 
-        inStack[v] = false;
+        inStack.set(v, Boolean.FALSE);
         order.add(vertex);
     }
 }

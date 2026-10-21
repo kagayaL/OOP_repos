@@ -1,19 +1,11 @@
 package ru.nsu.kagaya.task112.graph.bricks;
 
-public class Edge {
-    private final int _from;
-    private final int _to;
+/**
+ * Класс реализующий ребро графа.
+ *
+ * @param from исходящая вершина ребра.
+ * @param to входящая вершина ребра.
+ */
+public record Edge(int from, int to) {
 
-    public Edge(int from, int to) {
-        _from = from;
-        _to = to;
-    }
-
-    public int from() {
-        return _from;
-    }
-
-    public int to() {
-        return _to;
-    }
 }
