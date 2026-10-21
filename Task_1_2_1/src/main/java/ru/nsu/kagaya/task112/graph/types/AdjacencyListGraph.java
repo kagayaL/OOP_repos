@@ -1,10 +1,9 @@
 package ru.nsu.kagaya.task112.graph.types;
 
-import ru.nsu.kagaya.task112.graph.bricks.Vertex;
-import ru.nsu.kagaya.task112.graph.Graph;
-
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.kagaya.task112.graph.bricks.Vertex;
+import ru.nsu.kagaya.task112.graph.Graph;
 
 public class AdjacencyListGraph implements Graph {
     private final List<List<Vertex>> graphList;

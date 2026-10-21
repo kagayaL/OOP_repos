@@ -1,12 +1,12 @@
 package ru.nsu.kagaya.task112.graph.types;
 
+import java.util.ArrayList;
+import java.util.List;
 import ru.nsu.kagaya.task112.graph.bricks.Vertex;
 import ru.nsu.kagaya.task112.graph.Graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AdjacencyMatrixGraph implements Graph {
+
     private final List<List<Integer>> graphMatrix;
 
     /**
@@ -18,10 +18,17 @@ public class AdjacencyMatrixGraph implements Graph {
 
     @Override
     public void addVertex(Vertex vertex) {
-        graphMatrix.add(new ArrayList<>());
+        int newSize = graphMatrix.size() + 1;
+
         for (List<Integer> row : graphMatrix) {
             row.add(0);
         }
+
+        List<Integer> newRow = new ArrayList<>();
+        for (int i = 0; i < newSize; i++) {
+            newRow.add(0);
+        }
+        graphMatrix.add(newRow);
     }
 
     @Override
