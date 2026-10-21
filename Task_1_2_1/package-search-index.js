@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.kagaya.task112"},{"l":"ru.nsu.kagaya.task112.algorithms"},{"l":"ru.nsu.kagaya.task112.graph"},{"l":"ru.nsu.kagaya.task112.graph.bricks"},{"l":"ru.nsu.kagaya.task112.graph.types"},{"l":"ru.nsu.kagaya.task112.io"},{"l":"ru.nsu.kagaya.task112.utils"}];updateSearchResults();
