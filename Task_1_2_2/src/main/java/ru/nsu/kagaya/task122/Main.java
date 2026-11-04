@@ -1,8 +1,19 @@
 package ru.nsu.kagaya.task122;
 
+import ru.nsu.kagaya.task122.hashtable.HashTable;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+/**
+ * Главный класс с точкой входа.
+ */
 public class Main {
+    /**
+     * Точка входа.
+     *
+     * @param args их нет.
+     */
     public static void main(String[] args) {
         HashTable<String, Number> hashTable = new HashTable<>();
 
@@ -39,7 +50,7 @@ public class Main {
 
         //итерация
         System.out.println("iteration:");
-        for (Node<String, Number> node : hashTable) {
+        for (HashTable.Node<String, Number> node : hashTable) {
             System.out.println("  " + node.getKey() + " - " + node.getValue());
         }
 

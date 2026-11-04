@@ -1,20 +1,30 @@
-package ru.nsu.kagaya.task122;
+package ru.nsu.kagaya.task122.hashtable;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
-public class HashTable<K, V> implements Iterable<Node<K, V>> {
+/**
+ * Параметризованная хеш-таблица.
+ * Разрешение коллизий — цепочки.
+ *
+ * @param <K> тип ключа.
+ * @param <V> тип значения.
+ */
+public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
+
     private static final int START_BUCKET_COUNT = 16;
     private static final double LOAD_FACTOR = 0.7;
-    //бакеты
-    private List<Node<K, V>> buckets;
-    //количество модификаций для исключения итератора
+
+    private final List<Node<K, V>> buckets;
     private int modificationCount;
-    //количество пар
     private int pairsCount;
 
+    /**
+     * Создаёт пустую хештаблицу.
+     */
     public HashTable() {
         pairsCount = 0;
         modificationCount = 0;
@@ -22,9 +32,15 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         for (int i = 0; i < START_BUCKET_COUNT; i++) {
             buckets.add(null);
         }
-
     }
 
+    /**
+     * Добавляет пару ключ-значение.
+     * если есть значение меняем.
+     *
+     * @param key ключ.
+     * @param value значение.
+     */
     public void add(K key, V value) {
         int hash = Math.abs(key.hashCode() % buckets.size());
 
@@ -59,6 +75,12 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         }
     }
 
+    /**
+     * Удаляет пару по ключу.
+     *
+     * @param key ключ.
+     * @return удалённое значение.
+     */
     public V remove(K key) {
         int hash = Math.abs(key.hashCode() % buckets.size());
         Node<K, V> currentNode = buckets.get(hash);
@@ -87,6 +109,12 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         return null;
     }
 
+    /**
+     * Возвращает значение по ключу.
+     *
+     * @param key ключ.
+     * @return значение.
+     */
     public V getValue(K key) {
         int hash = Math.abs(key.hashCode() % buckets.size());
         Node<K, V> currentNode = buckets.get(hash);
@@ -100,6 +128,13 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         return null;
     }
 
+    /**
+     * Обновляет значение по ключу.
+     *
+     * @param key ключ.
+     * @param value новое значение.
+     * @throws RuntimeException если ключа нет.
+     */
     public void setValue(K key, V value) {
         int hash = Math.abs(key.hashCode() % buckets.size());
         Node<K, V> currentNode = buckets.get(hash);
@@ -115,6 +150,12 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         throw new RuntimeException("Ключа " + key + " нет");
     }
 
+    /**
+     * Проверяет наличие ключа.
+     *
+     * @param key ключ.
+     * @return true, если ключ есть.
+     */
     public boolean hasValue(K key) {
         int hash = Math.abs(key.hashCode() % buckets.size());
         Node<K, V> currentNode = buckets.get(hash);
@@ -128,11 +169,91 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         return false;
     }
 
+    /**
+     * Возвращает итератор по парам.
+     *
+     * @return итератор.
+     */
     @Override
     public Iterator<Node<K, V>> iterator() {
         return new HashTableIterator();
     }
 
+    /**
+     * Сравнивает две хештаблицы.
+     *
+     * @param other другая таблица.
+     * @return true, если пары совпадают.
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean equals(Object other) {
+
+        if (other == null ||
+                this.getClass() != other.getClass()) {
+            return false;
+        }
+
+        HashTable<K, V> otherHashTable = (HashTable<K, V>) other;
+
+        if (this.pairsCount != otherHashTable.pairsCount) {
+            return false;
+        }
+
+        for (var node : this) {
+            K myKey = node.getKey();
+            V myValue = node.getValue();
+
+            if (!otherHashTable.hasValue(myKey)) {
+                return false;
+            } else if (!Objects.equals(otherHashTable.getValue(myKey), myValue)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Хешкод таблицы.
+     *
+     * @return хешкод.
+     */
+    @Override
+    public int hashCode() {
+        int totalHash = 0;
+
+        for (var node : this) {
+            K myKey = node.getKey();
+            V myValue = node.getValue();
+            totalHash += Objects.hashCode(myKey) + Objects.hashCode(myValue);
+        }
+
+        return totalHash;
+    }
+
+    /**
+     * Строковое представление таблицы.
+     *
+     * @return строка вида {key : value; }.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("{");
+
+        for (Node<K, V> node : this) {
+            sb.append(node.getKey());
+            sb.append(" : ");
+            sb.append(node.getValue());
+            sb.append("; ");
+        }
+
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Итератор по парам таблицы.
+     */
     private class HashTableIterator implements Iterator<Node<K, V>> {
         private final int expectedModificationCount = modificationCount;
         private Node<K, V> nextNode = null;
@@ -152,8 +273,7 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         public Node<K, V> next() {
             checkForModification();
             if (!hasNext()) {
-                throw new RuntimeException(
-                        "Элементы кончились");
+                throw new RuntimeException("Элементы кончились");
             }
             Node<K, V> currentNode = nextNode;
             advance();
@@ -162,8 +282,7 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
 
         private void checkForModification() {
             if (modificationCount != expectedModificationCount) {
-                throw new
-                        ConcurrentModificationException("Таблица была изменена");
+                throw new ConcurrentModificationException("Таблица была изменена");
             }
         }
 
@@ -187,63 +306,57 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
         }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public boolean equals(Object other) {
+    /**
+     * Узел хеш-таблицы.
+     *
+     * @param <K> тип ключа.
+     * @param <V> тип значения.
+     */
+    public static class Node<K, V> {
+        private final K key;
+        private V value;
+        private Node<K, V> previousNode;
+        private Node<K, V> nextNode;
 
-        if (other == null ||
-                this.getClass() != other.getClass()) {
-            return false;
+        /**
+         * Создаёт узел.
+         *
+         * @param key ключ.
+         * @param value значение.
+         */
+        public Node(K key, V value) {
+            this.key = key;
+            this.value = value;
+            this.previousNode = null;
+            this.nextNode = null;
         }
 
-        HashTable<K, V> otherHashTable = (HashTable<K, V>) other;
-
-        if(this.pairsCount != otherHashTable.pairsCount) {
-            return false;
+        public K getKey() {
+            return key;
         }
 
-        for (var node : this) {
-            K myKey = node.getKey();
-            V myValue = node.getValue();
-
-            if (!otherHashTable.hasValue(myKey)) {
-                return false;
-            }
-            else if (!otherHashTable.getValue(myKey).equals(myValue)) {
-                return false;
-            }
+        public V getValue() {
+            return value;
         }
-        return true;
+
+        public Node<K, V> getPreviousNode() {
+            return previousNode;
+        }
+
+        public Node<K, V> getNextNode() {
+            return nextNode;
+        }
+
+        public void setValue(V value) {
+            this.value = value;
+        }
+
+        public void setPreviousNode(Node<K, V> newPreviousNode) {
+            previousNode = newPreviousNode;
+        }
+
+        public void setNextNode(Node<K, V> newNextNode) {
+            nextNode = newNextNode;
+        }
     }
-
-    @Override
-    public int hashCode() {
-        int totalHash = 0;
-
-        for (var node : this) {
-            K myKey = node.getKey();
-            V myValue = node.getValue();
-            totalHash += myKey.hashCode() + myValue.hashCode();
-        }
-
-        return totalHash;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("{");
-
-        for (Node<K, V> node : this) {
-            sb.append(node.getKey());
-            sb.append(" : ");
-            sb.append(node.getValue());
-            sb.append("; ");
-        }
-
-        sb.append("}");
-        return sb.toString();
-    }
-
-
 }
-
