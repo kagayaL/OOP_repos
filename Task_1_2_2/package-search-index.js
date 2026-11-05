@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"ru.nsu.kagaya.task122"},{"l":"ru.nsu.kagaya.task122.hashtable"}];updateSearchResults();
