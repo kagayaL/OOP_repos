@@ -43,35 +43,29 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
      */
     public void add(K key, V value) {
         int hash = Math.abs(key.hashCode() % buckets.size());
+        Node<K, V> currentNode = buckets.get(hash);
 
-        if (buckets.get(hash) == null) {
-            buckets.set(hash, new Node<>(key, value));
-            pairsCount++;
-        } else {
-            var currentNode = buckets.get(hash);
-
-            while (true) {
-
-                //если уже есть узел с таким значением - перезапись
-                if (currentNode.getKey().equals(key)) {
-                    currentNode.setValue(value);
-                    break;
-                }
-
-                currentNode = currentNode.getNextNode();
-
-                if (currentNode.getNextNode() == null) {
-                    var newNode = new Node<>(key, value);
-                    currentNode.setNextNode(newNode);
-                    newNode.setPreviousNode(currentNode);
-                    pairsCount++;
-                    break;
-                }
+        // ищем ключ по всей цепочке
+        while (currentNode != null) {
+            if (currentNode.getKey().equals(key)) {
+                currentNode.setValue(value);
+                modificationCount++;
+                return;
             }
+            currentNode = currentNode.getNextNode();
         }
 
-        if ((double)pairsCount / buckets.size() > LOAD_FACTOR) {
+        // не нашли - добавляем в голову бакета
+        Node<K, V> newNode = new Node<>(key, value);
+        newNode.setNextNode(buckets.get(hash));
+        if (buckets.get(hash) != null) {
+            buckets.get(hash).setPreviousNode(newNode);
+        }
+        buckets.set(hash, newNode);
+        pairsCount++;
+        modificationCount++;
 
+        if ((double) pairsCount / buckets.size() > LOAD_FACTOR) {
         }
     }
 
