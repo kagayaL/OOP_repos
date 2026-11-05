@@ -65,8 +65,6 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
         pairsCount++;
         modificationCount++;
 
-        if ((double) pairsCount / buckets.size() > LOAD_FACTOR) {
-        }
     }
 
     /**
@@ -82,7 +80,6 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
 
         while (currentNode != null) {
             if (currentNode.getKey().equals(key)) {
-                V removedValue = currentNode.getValue();
 
                 if (previousNode == null) {
                     buckets.set(hash, currentNode.getNextNode());
@@ -95,7 +92,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
 
                 pairsCount--;
                 modificationCount++;
-                return removedValue;
+                return currentNode.getValue();
             }
             previousNode = currentNode;
             currentNode = currentNode.getNextNode();
@@ -183,8 +180,8 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
     @SuppressWarnings("unchecked")
     public boolean equals(Object other) {
 
-        if (other == null ||
-                this.getClass() != other.getClass()) {
+        if (other == null
+                || this.getClass() != other.getClass()) {
             return false;
         }
 
