@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.kagaya.task113.parser.ParseExpressionTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-06T19:32:02.521Z" hostname="DESKTOP-D5NLS6Q" time="0.071">
+  <properties/>
+  <testcase name="parseVariable()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.036"/>
+  <testcase name="parseNested()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.002"/>
+  <testcase name="parseNumber()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.005"/>
+  <testcase name="parseWithVariables()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.004"/>
+  <testcase name="parseAdd()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.001"/>
+  <testcase name="parseDiv()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.002"/>
+  <testcase name="parseMul()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.001"/>
+  <testcase name="parseSub()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.001"/>
+  <testcase name="parseWithSpaces()" classname="ru.nsu.kagaya.task113.parser.ParseExpressionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
