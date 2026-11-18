@@ -23,7 +23,9 @@ public class SubstringSearcher {
      * @return массив с вхождениями.
      * @throws IOException исключение, если не удалось считать файл.
      */
-    public static List<Integer> find(String path, String substring) throws IOException {
+    public static List<Integer> find(String path, String substring)
+            throws IOException {
+
         int substringLength = substring.length();
         int wantedHash = getHash(substring);
         //считаем степень для подстроки по длине
@@ -34,7 +36,8 @@ public class SubstringSearcher {
 
         List<Integer> lst = new ArrayList<>();
 
-        try (var br = Files.newBufferedReader(Path.of(path), StandardCharsets.UTF_8)) {
+        try (var br = Files.newBufferedReader(Path.of(path),
+                StandardCharsets.UTF_8)) {
 
             StringBuilder stringBuilder = new StringBuilder(substringLength);
             for (int i = 0; i < substringLength; i++) {

@@ -1,8 +1,8 @@
 package ru.nsu.kagaya.task131;
 
-import ru.nsu.kagaya.task131.searcher.SubstringSearcher;
-
 import java.io.IOException;
+
+import ru.nsu.kagaya.task131.searcher.SubstringSearcher;
 
 /**
  * Класс с точкой входа.
