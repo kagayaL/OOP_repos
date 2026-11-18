@@ -1,4 +1,4 @@
-package ru.nsu.kagaya.task131;
+package ru.nsu.kagaya.task131.searcher;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,14 +7,26 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс для поиска подстроки.
+ */
 public class SubstringSearcher {
-
+    //степень для полиномиального хеша
     private static final int BASE = 257;
 
+    /**
+     *Функция находящая подстроку в строке
+     * при помощи полиномиального хеша.
+     *
+     * @param path - путь до файла со строкой.
+     * @param substring - искомая подстрока.
+     * @return массив с вхождениями.
+     * @throws IOException исключение, если не удалось считать файл.
+     */
     public static List<Integer> find(String path, String substring) throws IOException {
         int substringLength = substring.length();
         int wantedHash = getHash(substring);
-
+        //считаем степень для подстроки по длине
         int basePow = 1;
         for (int i = 0; i < substringLength - 1; i++) {
             basePow *= BASE;
@@ -24,10 +36,14 @@ public class SubstringSearcher {
 
         try (var br = Files.newBufferedReader(Path.of(path), StandardCharsets.UTF_8)) {
 
-            char[] cbuf = new char[substringLength];
-            int ind = br.read(cbuf, 0, substringLength);
-
-            StringBuilder stringBuilder = new StringBuilder(String.copyValueOf(cbuf));
+            StringBuilder stringBuilder = new StringBuilder(substringLength);
+            for (int i = 0; i < substringLength; i++) {
+                int ch = br.read();
+                if (ch == -1) {
+                    return lst; //файл слишком короткий
+                }
+                stringBuilder.append((char) ch);
+            }
             int currentHash = getHash(stringBuilder.toString());
 
             int index = 0;
@@ -46,7 +62,6 @@ public class SubstringSearcher {
 
                 currentHash = (currentHash - removedChar.hashCode() * basePow) * BASE
                         + addedChar.hashCode();
-
                 if (currentHash == wantedHash
                         && stringBuilder.toString().equals(substring)) {
                     lst.add(index);
